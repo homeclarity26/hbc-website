@@ -396,7 +396,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, oklch(0.15 0.04 260 / 0.85) 0%, oklch(0.15 0.04 260 / 0.5) 100%);
+  background: linear-gradient(135deg, oklch(0.25 0.06 250 / 0.68) 0%, oklch(0.22 0.05 250 / 0.38) 100%);
 }
 .hero__content {
   position: relative;
@@ -482,8 +482,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
   gap: var(--space-4);
 }
 .hero__stat-card {
-  background: oklch(from #FAF8F5 l c h / 0.07);
-  border: 1px solid oklch(from #FAF8F5 l c h / 0.12);
+  background: oklch(from #FAF8F5 l c h / 0.10);
+  border: 1px solid oklch(from #FAF8F5 l c h / 0.18);
   border-radius: var(--radius-xl);
   padding: var(--space-5) var(--space-6);
   backdrop-filter: blur(8px);
@@ -501,11 +501,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
   color: var(--color-primary);
 }
 .hero__stat-value {
-  font-family: var(--font-mono);
-  font-size: var(--text-xl);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  font-style: italic;
   color: #FAF8F5;
   line-height: 1;
+  letter-spacing: -0.01em;
 }
 .hero__stat-label {
   font-size: var(--text-xs);
