@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Adam Kilgore, Hometown Builders Club">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.hometownbuildersclub.com/">
   <title>Hometown Builders Club — Your Home's Trusted Advisor in Northeast Ohio</title>
-  <meta name="description" content="Hometown Builders Club provides expert home guidance, the Home Clarity Report, AI-powered trade partner services, and trusted contractor connections across Summit County, Ohio.">
+  <meta name="description" content="Hometown Builders Club — Summit County Ohio's trusted home advisor. Expert guidance, the $4,500 Home Clarity Report, vetted trade partners, and a lifetime relationship with someone who knows your home. Serving Hudson, Bath, Richfield, Stow & beyond.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Hometown Builders Club">
-  <meta property="og:description" content="Expert home guidance, the Home Clarity Report, and trusted contractor connections in Northeast Ohio.">
+  <meta property="og:title" content="Hometown Builders Club | Summit County Ohio's Trusted Home Advisor">
+  <meta property="og:description" content="Expert home guidance, the $4,500 Home Clarity Report, vetted trade partners, and a lifetime advisory relationship. Serving Hudson, Bath, Richfield, Stow and all of Summit County, Ohio.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hometownbuildersclub.com">
 
@@ -24,19 +27,118 @@
   <!-- Skip link -->
   <a href="#main" class="sr-only">Skip to main content</a>
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD Schema — LocalBusiness + Service + FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
     "name": "Hometown Builders Club",
-    "description": "Expert home guidance, Home Clarity Report, and trusted contractor connections in Northeast Ohio.",
-    "url": "https://hometownbuildersclub.com",
+    "description": "Summit County Ohio\'s trusted home advisor. Expert home guidance, the $4,500 Home Clarity Report, vetted trade partners, and a lifetime advisory relationship for Northeast Ohio homeowners.",
+    "url": "https://www.hometownbuildersclub.com",
     "email": "adam@hometownbuildersclub.com",
-    "areaServed": "Summit County, Ohio",
-    "serviceType": ["Home Inspection", "Home Remodeling Consultation", "Contractor Referral"]
+    "telephone": "+13305768532",
+    "founder": {"@type": "Person", "name": "Adam Kilgore"},
+    "foundingDate": "1999",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cuyahoga Falls",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Hudson, Ohio"},
+      {"@type": "City", "name": "Bath Township, Ohio"},
+      {"@type": "City", "name": "Richfield, Ohio"},
+      {"@type": "City", "name": "Stow, Ohio"},
+      {"@type": "City", "name": "Cuyahoga Falls, Ohio"},
+      {"@type": "AdministrativeArea", "name": "Summit County, Ohio"},
+      {"@type": "AdministrativeArea", "name": "Northeast Ohio"}
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Home Advisory Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Home Clarity Report",
+            "description": "A comprehensive $4,500 home consulting package including on-site visit, 30-50 page renovation roadmap, architect-grade floor plans, 3D exterior model, 360° photo tour, and lifetime advisory relationship.",
+            "offers": {"@type": "Offer", "price": "4500", "priceCurrency": "USD"}
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Trade Partner Membership",
+            "description": "Vetted contractor referral network and AI-powered back-office services for trade professionals in Northeast Ohio."
+          }
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/hbc.ohio/",
+      "https://x.com/BuilderClubOhio"
+    ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Hometown Builders Club?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hometown Builders Club is Northeast Ohio\'s trusted home advisor — a single point of contact for every decision about your home. We offer the Home Clarity Report, vetted trade partner connections, and a lifetime advisory relationship backed by 25+ years of remodeling expertise."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Home Clarity Report?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Home Clarity Report is a $4,500 comprehensive home consulting package. It includes a 2-3 hour on-site visit, a 30-50 page renovation roadmap, architect-grade floor plans, a full 3D exterior model, a 360° interior photo tour, proactive replacement cost projections, and lifetime access to your Home OS dashboard. Delivered within 72 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does the Home Clarity Report cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Home Clarity Report is a one-time investment of $4,500. This covers the full on-site consultation, the complete report with floor plans and 3D model, and a lifetime advisory relationship with Adam Kilgore."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas does Hometown Builders Club serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve homeowners throughout Northeast Ohio, including Summit County, Medina County, Cuyahoga County, Portage County, and Northern Stark County. Key areas include Hudson, Bath Township, Richfield, Stow, Cuyahoga Falls, Fairlawn, and Silver Lake."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is Adam Kilgore?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Adam Kilgore is the founder of Hometown Builders Club and AK Renovations. With 25+ years of residential remodeling experience in Northeast Ohio, Adam serves as a trusted home advisor — one point of contact for every project, question, and contractor recommendation."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Google Analytics — replace GA_MEASUREMENT_ID with your G-XXXXXXXX from analytics.google.com -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script> -->
 </head>
 <body>
 
@@ -51,7 +153,7 @@
           <!-- SVG Logo Mark -->
           <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <!-- House shape -->
-            <rect width="38" height="38" rx="9" fill="#1B2B4D"/>
+            <rect width="38" height="38" rx="9" fill="#1e3a5f"/>
             <!-- Roof line -->
             <path d="M8 19.5L19 10L30 19.5" stroke="#C4873A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             <!-- House body -->
@@ -146,6 +248,7 @@
                 Schedule a Discovery Call
               </a>
             </div>
+            <p class="hero__soft-cta">Not sure where to start? <a href="#contact" class="hero__soft-link">Talk to an expert — free, no obligation.</a></p>
           </div>
 
           <!-- Right: Stats cards -->
@@ -602,6 +705,80 @@
     </div>
   </section>
 
+  <!-- ========== FAQ ========== -->
+  <section class="faq-section section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="eyebrow">Common Questions</span>
+        <h2 id="faq-title">Everything you need to know</h2>
+        <p class="section-desc">Still have questions? <a href="#contact" style="color:var(--color-primary);">Send us a message</a> or call <a href="tel:+13305768532" style="color:var(--color-primary);">(330) 576-8532</a>.</p>
+      </div>
+      <div class="faq-list fade-in" id="hbc-faq-list">
+
+        <div class="faq-item open">
+          <button class="faq-question" aria-expanded="true">
+            <span>What exactly is the Home Clarity Report?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">The Home Clarity Report is a $4,500 comprehensive home advisory package. We visit your home for 2&#8211;3 hours, then deliver a 30&#8211;50 page renovation roadmap, architect-grade floor plans, a full 3D exterior model, a 360&#176; interior photo tour, proactive system replacement costs, and lifetime access to your Home OS dashboard &#8212; all within 72 hours. You also get Adam as a permanent advisor for the life of your home.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How much does it cost and what&#8217;s included?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">One flat investment of $4,500. That covers the full on-site consultation, every deliverable (written report, floor plans, 3D model, 360&#176; tour, owner&#8217;s manuals, project scopes), lifetime access to your Home OS dashboard, and a permanent advisory relationship with Adam. No subscriptions, no upsells, no hidden fees.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Who is Hometown Builders Club for?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">HBC serves three audiences: homeowners who want strategic guidance before remodeling, homeowners who want one trusted advisor for every future decision about their home, and trade professionals looking for a vetted referral network and AI back-office support. If you&#8217;re a Northeast Ohio homeowner thinking about any home project &#8212; large or small &#8212; we can help.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What areas do you serve?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We serve all of Northeast Ohio &#8212; Summit County, Medina County, Cuyahoga County, Portage County, and Northern Stark County. Key cities include Hudson, Bath Township, Richfield, Stow, Cuyahoga Falls, Fairlawn, and Silver Lake. If you&#8217;re unsure whether we reach your neighborhood, just ask.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How is this different from a home inspection?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">A home inspection tells you what&#8217;s broken. The Clarity Report tells you what to do about it &#8212; and everything else. We provide a full renovation strategy, realistic local pricing, prioritized project sequencing, and a permanent advisory relationship. Inspectors check boxes. We build roadmaps.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is Trade Partner Membership?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Trade Partner Membership gives local contractors and remodelers access to our pre-qualified client referral network. Partners can also subscribe to our AI back-office agent team ($997&#8211;$2,500/month) &#8212; a suite of AI-powered tools that handles estimates, scheduling, follow-up, and client communication. Ideal for trade professionals who want to grow without adding overhead.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ─── CTA / CONTACT ─── -->
   <section class="cta-section" id="contact" aria-labelledby="cta-title">
     <div class="container">
@@ -695,7 +872,7 @@
       <div class="footer__brand">
         <a href="#" class="nav__logo" style="margin-bottom: var(--space-3);" aria-label="Hometown Builders Club">
           <svg width="32" height="32" viewBox="0 0 38 38" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-            <rect width="38" height="38" rx="9" fill="#1B2B4D"/>
+            <rect width="38" height="38" rx="9" fill="#1e3a5f"/>
             <path d="M8 19.5L19 10L30 19.5" stroke="#C4873A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             <rect x="11" y="19.5" width="16" height="10.5" rx="1" fill="#C4873A" fill-opacity="0.18" stroke="#C4873A" stroke-width="1.5"/>
             <rect x="16.5" y="23.5" width="5" height="6.5" rx="0.75" fill="#C4873A"/>
@@ -850,6 +1027,21 @@
           btn.disabled = false;
           alert('Something went wrong. Please check your connection and try again.');
         }
+      });
+    });
+  })();
+
+
+  // HBC FAQ accordion
+  (function(){
+    const items = document.querySelectorAll('#hbc-faq-list .faq-item');
+    items.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        items.forEach(i => { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
       });
     });
   })();
