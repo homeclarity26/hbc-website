@@ -463,14 +463,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
   flex-direction: column;
   gap: 8px;
   padding-top: 8px;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(30,58,95,0.15) transparent;
-  padding-right: 4px;
 }
-.hero__cards::-webkit-scrollbar { width: 4px; }
-.hero__cards::-webkit-scrollbar-thumb { background: rgba(30,58,95,0.15); border-radius: 2px; }
 .hero__cards-label {
   font-family: var(--font-body);
   font-size: 9px;
