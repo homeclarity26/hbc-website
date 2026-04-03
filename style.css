@@ -382,13 +382,11 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
   padding: 80px 0 100px;
 }
 .hero__inner {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 72px;
-  align-items: start;
+  max-width: 760px;
+  margin: 0 auto;
 }
 .hero__left {
-  padding-top: 8px;
+  padding-top: 0;
 }
 .hero__eyebrow {
   font-family: var(--font-body);
@@ -508,14 +506,71 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
   line-height: 1.55;
 }
 
-@media (max-width: 960px) {
-  .hero__inner {
+/* benefits section responsive handled below */
+
+/* ─── BENEFITS SECTION ─── */
+.benefits-section {
+  background: #FFFFFF;
+  padding-block: clamp(var(--space-12), 8vw, var(--space-24));
+  border-bottom: 1px solid rgba(30,58,95,0.06);
+}
+.benefits-section__intro {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+.benefits-section__eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.benefits-section__eyebrow::before,
+.benefits-section__eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--color-amber);
+}
+.benefits-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 400;
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
+}
+.benefits-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+.benefits-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.benefits-col__label {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+  margin-bottom: var(--space-1);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid rgba(196,135,58,0.2);
+}
+@media (max-width: 768px) {
+  .benefits-section__grid {
     grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  .hero__cards {
-    max-height: none;
-    overflow-y: visible;
+    gap: var(--space-8);
   }
 }
 
