@@ -1622,3 +1622,34 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
 .hero__soft-cta { margin-top: 1rem; font-size: 0.875rem; color: #8A8F9E; }
 .hero__soft-link { color: var(--color-navy, #1e3a5f); text-decoration: underline; text-underline-offset: 3px; }
 .hero__soft-link:hover { color: var(--color-primary, #C4873A); }
+
+/* ─── TRUST BAR ─── */
+.trust-bar {
+  padding-block: clamp(2rem, 4vw, 3rem);
+  background: var(--color-navy, #1e3a5f);
+}
+.trust-bar__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6, 24px);
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .trust-bar__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4, 16px); }
+}
+.trust-bar__val {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  color: #C4873A;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+.trust-bar__lbl {
+  font-family: var(--font-body, 'Switzer', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: oklch(from #FAF8F5 l c h / 0.65);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
