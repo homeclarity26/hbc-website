@@ -94,12 +94,35 @@
             </div>
           </div>
         </div>
+
+        <!-- Formspree Contact Form -->
+        <!-- REPLACE YOUR_HBC_FORMSPREE_ID with your real Formspree form ID (e.g. xkoprwbg) -->
         <div>
-          <div style="background:var(--color-navy);border-radius:14px;padding:2.5rem;text-align:center;">
-            <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:#fff;margin:0 0 0.75rem;">Book a Free Discovery Call</h3>
-            <p style="font-size:0.9375rem;color:rgba(255,255,255,0.6);line-height:1.65;margin:0 0 1.5rem;">30 minutes · Free · No obligation</p>
-            <a href="https://calendly.com/homeclarityreport/30min" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;background:var(--color-amber);">Schedule on Calendly</a>
-          </div>
+          <h2 style="font-family:var(--font-display);font-size:1.75rem;font-weight:400;color:var(--color-navy);margin:0 0 1.5rem;">Send a Message</h2>
+          <form action="https://formspree.io/f/YOUR_HBC_FORMSPREE_ID" method="POST" style="display:flex;flex-direction:column;gap:1.125rem;">
+            <input type="hidden" name="_subject" value="New Inquiry — Hometown Builders Club" />
+            <input type="hidden" name="_next" value="https://www.hometownbuildersclub.com/thank-you" />
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+              <div>
+                <label for="hbc-name" style="display:block;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-amber);margin-bottom:0.4rem;">Your Name *</label>
+                <input type="text" id="hbc-name" name="name" required autocomplete="name" placeholder="Jane & Bob Smith" style="width:100%;padding:0.75rem 1rem;border:1.5px solid rgba(30,58,95,0.18);border-radius:6px;font-size:0.9375rem;font-family:var(--font-body);color:var(--color-navy);background:#fff;box-sizing:border-box;" />
+              </div>
+              <div>
+                <label for="hbc-phone" style="display:block;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-amber);margin-bottom:0.4rem;">Phone *</label>
+                <input type="tel" id="hbc-phone" name="phone" required autocomplete="tel" placeholder="(330) 555-0000" style="width:100%;padding:0.75rem 1rem;border:1.5px solid rgba(30,58,95,0.18);border-radius:6px;font-size:0.9375rem;font-family:var(--font-body);color:var(--color-navy);background:#fff;box-sizing:border-box;" />
+              </div>
+            </div>
+            <div>
+              <label for="hbc-email" style="display:block;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-amber);margin-bottom:0.4rem;">Email</label>
+              <input type="email" id="hbc-email" name="email" autocomplete="email" placeholder="your@email.com" style="width:100%;padding:0.75rem 1rem;border:1.5px solid rgba(30,58,95,0.18);border-radius:6px;font-size:0.9375rem;font-family:var(--font-body);color:var(--color-navy);background:#fff;box-sizing:border-box;" />
+            </div>
+            <div>
+              <label for="hbc-message" style="display:block;font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-amber);margin-bottom:0.4rem;">Tell Us About Your Home *</label>
+              <textarea id="hbc-message" name="message" required rows="4" placeholder="What's on your mind? Any projects, concerns, or questions — we're listening." style="width:100%;padding:0.75rem 1rem;border:1.5px solid rgba(30,58,95,0.18);border-radius:6px;font-size:0.9375rem;font-family:var(--font-body);color:var(--color-navy);background:#fff;resize:vertical;box-sizing:border-box;"></textarea>
+            </div>
+            <button type="submit" style="padding:0.9rem 2rem;background:var(--color-amber);color:#fff;font-family:var(--font-body);font-size:0.9375rem;font-weight:700;letter-spacing:0.03em;border:none;border-radius:4px;cursor:pointer;align-self:flex-start;">Send Message</button>
+            <p style="font-size:0.8rem;color:var(--color-text-muted, #666);margin:0;">We respond within 1 business day. Your information is never shared.</p>
+          </form>
         </div>
       </div>
     </div>
