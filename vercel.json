@@ -39,6 +39,10 @@
     {
       "source": "/blog/when-to-update-before-selling",
       "destination": "/blog/when-to-update-before-selling.html"
+    },
+    {
+      "source": "/for-trade-partners",
+      "destination": "/for-trade-partners.html"
     }
   ],
   "headers": [
