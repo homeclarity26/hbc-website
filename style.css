@@ -796,7 +796,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
 }
 .product__badge-float {
   position: absolute;
-  bottom: -var(--space-4);
+  bottom: calc(-1 * var(--space-4));
   right: var(--space-4);
   background: var(--color-surface);
   color: var(--color-text);
@@ -827,6 +827,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
 @media (max-width: 900px) {
   .product__inner { grid-template-columns: 1fr; }
   .product__visual { order: -1; }
+  .product__badge-float { bottom: var(--space-4); right: var(--space-4); }
 }
 
 /* ─── TRADE PARTNER SECTION ─── */
@@ -942,7 +943,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
 .trade__stats-overlay {
   position: absolute;
   top: var(--space-4);
-  right: -var(--space-6);
+  right: calc(-1 * var(--space-6));
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -1161,7 +1162,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
 .about__akr-badge {
   position: absolute;
   bottom: var(--space-4);
-  right: -var(--space-4);
+  right: calc(-1 * var(--space-4));
   background: var(--color-navy);
   color: #FAF8F5;
   border-radius: var(--radius-xl);
@@ -1177,6 +1178,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-navy, var(
 
 @media (max-width: 900px) {
   .about__inner { grid-template-columns: 1fr; }
+  .about__akr-badge { right: var(--space-4); }
   .about__visual { order: -1; }
   .about__akr-badge { right: 0; }
 }
