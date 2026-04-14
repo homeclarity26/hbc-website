@@ -33,7 +33,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="image" href="./assets/hcr-hero.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/hbc-hero.jpg" fetchpriority="high">
   <link rel="stylesheet" href="./base.css">
   <link rel="stylesheet" href="./style.css">
 
@@ -225,10 +225,11 @@
 
         <!-- Desktop Nav Links -->
         <ul class="nav__links" role="list">
-          <li><a href="#homeowners">Homeowners</a></li>
-          <li><a href="#product">Home Clarity Report</a></li>
-          <li><a href="#trade-partners">Trade Partners</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="/about">About Adam</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/for-trade-partners">Trade Partners</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/blog">Blog</a></li>
         </ul>
 
         <!-- Nav CTA -->
@@ -257,10 +258,11 @@
 
   <!-- Mobile menu -->
   <div class="nav__mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-    <a href="#homeowners" onclick="closeMobileMenu()">Homeowners</a>
-    <a href="#product" onclick="closeMobileMenu()">Home Clarity Report</a>
-    <a href="#trade-partners" onclick="closeMobileMenu()">Trade Partners</a>
-    <a href="#about" onclick="closeMobileMenu()">About HBC</a>
+    <a href="/about" onclick="closeMobileMenu()">About Adam</a>
+    <a href="/services" onclick="closeMobileMenu()">Services</a>
+    <a href="/for-trade-partners" onclick="closeMobileMenu()">Trade Partners</a>
+    <a href="/faq" onclick="closeMobileMenu()">FAQ</a>
+    <a href="/blog" onclick="closeMobileMenu()">Blog</a>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;padding-top:1.5rem;">
       <a href="tel:+13302031331" class="btn btn-outline btn-lg" onclick="closeMobileMenu()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.35h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.12 6.12l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -275,44 +277,45 @@
 <main id="main">
 
   <!-- ─── HERO ─── -->
-  <section class="hero" id="hero" aria-labelledby="hero-title">
-
-    <div class="hero__inner container">
-
-      <!-- Left: Copy -->
-      <div class="hero__left">
-
-        <div class="hero__eyebrow">Your Personal Home Operating System</div>
-
-        <h1 class="hero__title" id="hero-title">
-          Where Human Expertise Meets the Most Advanced Home Intelligence Platform in Northeast Ohio.
-        </h1>
-
-        <p class="hero__bridge">
-          For homeowners who deserve real answers. For trade partners ready to work smarter.
-        </p>
-
-        <div class="hero__divider"></div>
-
-        <p class="hero__desc">HBC is your permanent home advisor and the operating system behind your home's entire lifecycle. We show up in person, learn your home inside and out, and build a living digital twin that makes every future decision faster, smarter, and more confident. Contractors arrive already knowing your home. You always have one number to call.</p>
-
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn-primary btn-lg">
-            <svg width="14" height="14" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l2.8 5.6 6.2.9-4.5 4.4 1.1 6.1L14 17l-5.6 3 1.1-6.1L5 9.5l6.2-.9L14 3z"/></svg>
-            Join Hometown Builders Club
-          </a>
-          <a href="#trade-partners" class="btn btn-outline btn-lg">
-            <svg width="14" height="14" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4a10 10 0 1 1 0 20A10 10 0 0 1 14 4z"/><path d="M10 14h8M14 10l4 4-4 4"/></svg>
-            Join as a Trade Partner
-          </a>
-        </div>
-
-        <p class="hero__soft-cta">Already a member? <a href="https://home-clarity-hub-04.vercel.app" class="hero__soft-link">Sign in to your portal.</a></p>
-
-      </div>
-
+  <section id="hero" aria-labelledby="hero-title" style="position:relative;min-height:100vh;background:#0F1826;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;">
+    <style>@keyframes hbc-zoom{from{transform:scale(1.04);}to{transform:scale(1.0);}}</style>
+    <!-- Background image -->
+    <div style="position:absolute;inset:0;animation:hbc-zoom 10s ease-out forwards;">
+      <div style="width:100%;height:100%;background-image:url('./assets/hbc-hero.jpg');background-size:cover;background-position:center 30%;"></div>
     </div>
-
+    <!-- Gradient overlays -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,24,38,0.55) 0%,rgba(15,24,38,0.22) 30%,rgba(15,24,38,0.80) 68%,rgba(15,24,38,0.97) 100%);"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(15,24,38,0.78) 0%,rgba(15,24,38,0.18) 55%,transparent 100%);"></div>
+    <!-- Content -->
+    <div class="container" style="position:relative;z-index:2;max-width:1100px;padding-top:140px;padding-bottom:80px;">
+      <p style="font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#C4873A;margin:0 0 20px;display:flex;align-items:center;gap:12px;">
+        <span style="display:inline-block;width:36px;height:1px;background:#C4873A;flex-shrink:0;"></span>
+        Northeast Ohio's Trusted Home Advisor
+      </p>
+      <h1 id="hero-title" style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:400;color:#fff;line-height:1.06;letter-spacing:-0.01em;margin:0 0 24px;max-width:800px;">
+        Your Home's<br><em style="color:rgba(255,255,255,0.52);font-style:italic;">Personal Advisor.</em>
+      </h1>
+      <p style="font-size:clamp(1rem,1.5vw,1.175rem);color:rgba(255,255,255,0.70);line-height:1.75;max-width:520px;margin:0 0 40px;font-weight:300;">
+        One trusted expert who knows your home, your history, and your goals. From the $4,500 Home Clarity Report to a lifetime advisory relationship — your home finally has a plan.
+      </p>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <a href="/contact" style="display:inline-flex;align-items:center;gap:14px;background:#F2EFE9;color:#1e3a5f;font-family:'Switzer','Helvetica Neue',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:18px 36px;border-radius:3px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='#F2EFE9'">
+          Book a Consultation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="square" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="#product" style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.48);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.80)'" onmouseout="this.style.color='rgba(255,255,255,0.48)'">See the Home Clarity Report →</a>
+      </div>
+    </div>
+    <!-- Trust signals bar -->
+    <div style="position:relative;z-index:2;border-top:1px solid rgba(255,255,255,0.07);background:rgba(15,24,38,0.85);backdrop-filter:blur(12px);">
+      <div class="container" style="padding-top:16px;padding-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.38);">27+ Years in NE Ohio</span>
+        <span style="width:4px;height:4px;border-radius:50%;background:#C4873A;flex-shrink:0;"></span>
+        <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.38);">Home Clarity Report — $4,500</span>
+        <span style="width:4px;height:4px;border-radius:50%;background:#C4873A;flex-shrink:0;"></span>
+        <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.38);">Lifetime Advisory Relationship</span>
+      </div>
+    </div>
   </section>
 
   <!-- ─── BENEFIT CARDS SECTION ─── -->
