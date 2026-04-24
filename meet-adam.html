@@ -30,7 +30,7 @@
         <a href="/how-it-works" class="nav__link">How It Works</a>
         <a href="/for-realtors" class="nav__link">For Realtors</a>
         <a href="/for-trade-partners" class="nav__link">For Trade Partners</a>
-        <a href="/meet-adam" class="nav__link">Meet Adam</a>
+        <a href="/meet-adam" class="nav__link nav__link--active">Meet Adam</a>
         <a href="/areas-served" class="nav__link">Areas Served</a>
         <a href="/faq" class="nav__link">FAQ</a>
       </div>
@@ -47,7 +47,7 @@
     <a href="/how-it-works" class="mobile-menu__link">How It Works</a>
     <a href="/for-realtors" class="mobile-menu__link">For Realtors</a>
     <a href="/for-trade-partners" class="mobile-menu__link">For Trade Partners</a>
-    <a href="/meet-adam" class="mobile-menu__link">Meet Adam</a>
+    <a href="/meet-adam" class="mobile-menu__link mobile-menu__link--active">Meet Adam</a>
     <a href="/areas-served" class="mobile-menu__link">Areas Served</a>
     <a href="/faq" class="mobile-menu__link">FAQ</a>
     <a href="https://homeclarityreport.com" class="mobile-menu__cta">Get the Report</a>
@@ -58,23 +58,46 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="section bg-cream">
-    <div class="container">
-      <div class="split split--center">
-        <div class="img-placeholder" style="min-height:480px">
-          <div class="img-placeholder__icon">&#128247;</div>
-          <p>Adam Kilgore<br>Summit County job site</p>
+  <section class="hero--split">
+    <div class="hero__split-inner">
+      <div class="hero__split-left">
+        <picture>
+          <source srcset="./assets/adam-kilgore-headshot.webp" type="image/webp">
+          <img src="./assets/adam-kilgore-headshot.png" alt="Adam Kilgore, founder of Hometown Builders Club and owner of AK Renovations" width="80" height="80" style="width:80px; height:80px; border-radius:50%; object-fit:cover; object-position:top; border:3px solid var(--copper); margin-bottom:20px; display:block;">
+        </picture>
+        <div class="hero__split-eyebrow">Adam Kilgore &middot; Founder &middot; Summit County Since 1999</div>
+        <h1 class="hero__split-h1">27 years remodeling Summit County homes. Then I realized the industry had <em>a structural&nbsp;problem.</em></h1>
+        <p class="hero__split-subhead">I didn't build Hometown Builders Club because I read a business book about home services. I built it because I was inside the problem for three decades — and I couldn't fix it from where I was&nbsp;standing.</p>
+        <div class="hero__split-cta-row">
+          <a href="/contact" class="btn btn-primary btn-lg">Book a Discovery Call</a>
+          <a href="/how-it-works" class="hero__split-link">See how HBC works &rarr;</a>
         </div>
-        <div>
-          <p class="hero__eyebrow">ADAM KILGORE &middot; FOUNDER</p>
-          <h1 style="font-family:var(--font-display); font-weight:700; font-size:clamp(2.2rem,5vw,3.5rem); line-height:1.1; color:var(--navy); margin-bottom:24px">27 years remodeling Summit County homes. Then I realized the industry had a structural problem.</h1>
-          <p style="font-size:18px; line-height:1.7; color:var(--navy); max-width:560px; margin-bottom:32px">I didn't build Hometown Builders Club because I read a business book about home services. I built it because I was inside the problem for three decades and couldn't fix it from where I was standing.</p>
-          <div class="stat-strip">
-            <span class="stat-item">27 Years</span>
-            <span class="stat-item">400+ Homes</span>
-            <span class="stat-item">$1.5M Annual Revenue</span>
-            <span class="stat-item">Summit County Since 1999</span>
-          </div>
+        <p class="hero__split-price">Free 30-minute call &middot; No pitch &middot; Adam picks up</p>
+      </div>
+      <div class="hero__spec-grid" role="list" aria-label="Adam Kilgore's credentials">
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">27</span>
+          <span class="hero__spec-label">Years remodeling Summit County homes — in business since 1999</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">400+</span>
+          <span class="hero__spec-label">Residential projects completed — kitchens, baths, additions, full restorations</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">01</span>
+          <span class="hero__spec-label">Expert in your corner — Adam handles every assessment personally</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">02</span>
+          <span class="hero__spec-label">No conflict of interest — HBC never bids on work it assesses</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">03</span>
+          <span class="hero__spec-label">Real Summit County pricing — 27 years of local project data, not a national database</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">04</span>
+          <span class="hero__spec-label">Community accountable — raises his family in Cuyahoga Falls, works his neighbors' homes</span>
         </div>
       </div>
     </div>
@@ -118,14 +141,20 @@
           <a href="https://akrenovationsohio.com" target="_blank" rel="noopener" class="text-link">Visit AK Renovations &rarr;</a>
         </div>
         <div style="display:flex; flex-direction:column; gap:20px">
-          <div class="img-placeholder" style="min-height:220px">
-            <div class="img-placeholder__icon">&#127968;</div>
-            <p>AK Renovations project<br>Hudson kitchen</p>
-          </div>
-          <div class="img-placeholder" style="min-height:220px">
-            <div class="img-placeholder__icon">&#127968;</div>
-            <p>AK Renovations project<br>Bath Township first floor</p>
-          </div>
+          <figure style="margin:0">
+            <picture>
+              <source srcset="./assets/ak-hudson-kitchen.webp" type="image/webp">
+              <img src="./assets/ak-hudson-kitchen.png" alt="AK Renovations completed kitchen remodel in Hudson, Ohio — white shaker cabinets, quartz countertops, and hardwood floors" style="width:100%; aspect-ratio:4/3; border-radius:8px; display:block; object-fit:cover;">
+            </picture>
+            <figcaption style="font-size:12px; color:rgba(10,22,40,0.5); margin-top:8px; font-family:var(--font-body)">AK Renovations &mdash; Hudson kitchen remodel</figcaption>
+          </figure>
+          <figure style="margin:0">
+            <picture>
+              <source srcset="./assets/ak-bath-township-first-floor.webp" type="image/webp">
+              <img src="./assets/ak-bath-township-first-floor.png" alt="AK Renovations completed first-floor renovation in Bath Township, Ohio — open concept living and dining space with new flooring and lighting" style="width:100%; aspect-ratio:4/3; border-radius:8px; display:block; object-fit:cover;">
+            </picture>
+            <figcaption style="font-size:12px; color:rgba(10,22,40,0.5); margin-top:8px; font-family:var(--font-body)">AK Renovations &mdash; Bath Township first-floor transformation</figcaption>
+          </figure>
         </div>
       </div>
     </div>

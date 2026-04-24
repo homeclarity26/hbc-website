@@ -106,6 +106,28 @@
     </div>
   </section>
 
+  <!-- STATS STRIP -->
+  <section class="stat-strip-section" aria-label="HBC by the numbers">
+    <div class="stat-strip-section__inner">
+      <div class="stat-strip-section__item">
+        <span class="stat-strip-section__num" data-count="400" data-suffix="+">400+</span>
+        <span class="stat-strip-section__label">Homes documented</span>
+      </div>
+      <div class="stat-strip-section__item">
+        <span class="stat-strip-section__num" data-count="27" data-suffix="">27</span>
+        <span class="stat-strip-section__label">Years in Summit County</span>
+      </div>
+      <div class="stat-strip-section__item">
+        <span class="stat-strip-section__num" data-count="4500" data-prefix="$" data-comma="true" data-suffix="">$4,500</span>
+        <span class="stat-strip-section__label">Flat fee &mdash; all-in</span>
+      </div>
+      <div class="stat-strip-section__item">
+        <span class="stat-strip-section__num" data-count="5" data-suffix=" days">5 days</span>
+        <span class="stat-strip-section__label">Delivery &mdash; by Adam personally</span>
+      </div>
+    </div>
+  </section>
+
   <!-- WHY HBC WORKS -->
   <section class="section bg-navy">
     <div class="container">
@@ -442,6 +464,36 @@
   function close(){m.classList.remove('open');h.setAttribute('aria-expanded','false');document.body.style.overflow='';}
   h.addEventListener('click',open);c.addEventListener('click',close);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var nums = document.querySelectorAll('.stat-strip-section__num[data-count]');
+  if(!nums.length) return;
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      var el = entry.target;
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var prefix = el.getAttribute('data-prefix') || '';
+      var suffix = el.getAttribute('data-suffix') || '';
+      var comma = el.getAttribute('data-comma') === 'true';
+      var duration = 1200;
+      var start = null;
+      function frame(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / duration, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
+        var val = Math.round(ease * target);
+        el.textContent = prefix + (comma ? val.toLocaleString() : val) + suffix;
+        if(p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    });
+  }, { threshold: 0.5 });
+  nums.forEach(function(el){ observer.observe(el); });
 })();
 </script>
 </body>

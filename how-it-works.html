@@ -27,7 +27,7 @@
         <span class="nav__brand-name">Hometown Builders Club</span>
       </a>
       <div class="nav__links">
-        <a href="/how-it-works" class="nav__link">How It Works</a>
+        <a href="/how-it-works" class="nav__link nav__link--active">How It Works</a>
         <a href="/for-realtors" class="nav__link">For Realtors</a>
         <a href="/for-trade-partners" class="nav__link">For Trade Partners</a>
         <a href="/meet-adam" class="nav__link">Meet Adam</a>
@@ -44,7 +44,7 @@
   <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button id="mobile-close" class="mobile-menu__close" aria-label="Close menu">&times;</button>
     <a href="/" class="mobile-menu__link">Home</a>
-    <a href="/how-it-works" class="mobile-menu__link">How It Works</a>
+    <a href="/how-it-works" class="mobile-menu__link mobile-menu__link--active">How It Works</a>
     <a href="/for-realtors" class="mobile-menu__link">For Realtors</a>
     <a href="/for-trade-partners" class="mobile-menu__link">For Trade Partners</a>
     <a href="/meet-adam" class="mobile-menu__link">Meet Adam</a>
@@ -58,11 +58,44 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero" style="background:var(--navy); padding:100px 0 80px">
-    <div class="hero__inner">
-      <p class="hero__eyebrow">THE HBC MODEL</p>
-      <h1 class="hero__h1 hero__h1--cream">How Hometown Builders Club actually works.</h1>
-      <p class="hero__subhead hero__subhead--cream" style="max-width:600px">Most home services platforms are marketplaces — they connect you to contractors and step aside. HBC is an information system. The difference is what happens before any contractor conversation begins.</p>
+  <section class="hero--split">
+    <div class="hero__split-inner">
+      <div class="hero__split-left">
+        <div class="hero__split-eyebrow">The HBC Model &middot; Summit County &middot; Since 1999</div>
+        <h1 class="hero__split-h1">How Hometown Builders Club actually <em>works.</em></h1>
+        <p class="hero__split-subhead">Most home services platforms are marketplaces — they connect you to contractors and step aside. HBC is an information system. The difference is what happens before any contractor conversation&nbsp;begins.</p>
+        <div class="hero__split-cta-row">
+          <a href="https://homeclarityreport.com" class="btn btn-primary btn-lg">Get the Home Clarity Report</a>
+          <a href="/contact" class="hero__split-link">Book a free discovery call &rarr;</a>
+        </div>
+        <p class="hero__split-price">Delivered in 5 business days &middot; by Adam personally &middot; Summit County</p>
+      </div>
+      <div class="hero__spec-grid" role="list" aria-label="How HBC works overview">
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">01</span>
+          <span class="hero__spec-label">Free 30-minute discovery call — we tell you honestly if HBC is the right fit</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">02</span>
+          <span class="hero__spec-label">On-site visit — 2 to 3 hours, every room, every system, done once</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">03</span>
+          <span class="hero__spec-label">Complete Report in 5 business days — floor plans, 3D model, 360&deg; photos, written scopes</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">04</span>
+          <span class="hero__spec-label">30 to 50 page written analysis — real 2026 Summit County pricing, no guesswork</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">05</span>
+          <span class="hero__spec-label">Vetted trade network — contractors arrive with your complete home profile already in hand</span>
+        </div>
+        <div class="hero__spec-card" role="listitem">
+          <span class="hero__spec-num">06</span>
+          <span class="hero__spec-label">Lifetime advisory access — one call for every project, every question, forever</span>
+        </div>
+      </div>
     </div>
   </section>
 
