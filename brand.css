@@ -44,6 +44,7 @@ body {
   line-height: 1.6;
   color: var(--navy);
   background: var(--white);
+  overflow-x: hidden;
 }
 img, picture, video, svg { display: block; max-width: 100%; height: auto; }
 ul { list-style: none; }
@@ -1107,6 +1108,22 @@ input, textarea, select { font: inherit; color: inherit; }
   .stat-strip-section__item:nth-child(2n) { border-right: none; }
   .stat-strip-section__item:nth-child(n+3) { border-bottom: none; }
   .stat-strip-section__item:last-child { border-right: none; }
+}
+
+/* --- CTA CONTACT GRID -------------------------------------- */
+.cta-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .cta-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 /* --- RESPONSIVE -------------------------------------------- */
