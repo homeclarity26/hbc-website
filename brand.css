@@ -179,6 +179,15 @@ input, textarea, select { font: inherit; color: inherit; }
   transition: color 150ms;
 }
 .nav__link:hover { color: var(--gold); }
+.nav__link--active {
+  color: var(--gold);
+  font-weight: 600;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+/* Mobile menu active state */
+.mobile-menu__link--active { color: var(--gold); }
 .nav__actions {
   display: flex;
   align-items: center;
@@ -1072,4 +1081,33 @@ input, textarea, select { font: inherit; color: inherit; }
   .hero__cta-row { flex-direction: column; align-items: flex-start; }
   .btn { width: 100%; justify-content: center; }
   .cta-band__options .btn { width: auto; }
+}
+
+/* --- HERO ENTRANCE ANIMATIONS -------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .hero--split .hero__split-eyebrow,
+  .hero--split .hero__split-h1,
+  .hero--split .hero__split-subhead,
+  .hero--split .hero__split-cta-row,
+  .hero--split .hero__split-price,
+  .hero--split .hero__spec-card {
+    animation: hero-fade-up 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+  .hero--split .hero__split-eyebrow  { animation-delay: 0ms; }
+  .hero--split .hero__split-h1       { animation-delay: 130ms; }
+  .hero--split .hero__split-subhead  { animation-delay: 290ms; }
+  .hero--split .hero__split-cta-row  { animation-delay: 430ms; }
+  .hero--split .hero__split-price    { animation-delay: 520ms; }
+  .hero--split .hero__spec-card:nth-child(1) { animation-delay: 200ms; }
+  .hero--split .hero__spec-card:nth-child(2) { animation-delay: 270ms; }
+  .hero--split .hero__spec-card:nth-child(3) { animation-delay: 340ms; }
+  .hero--split .hero__spec-card:nth-child(4) { animation-delay: 410ms; }
+  .hero--split .hero__spec-card:nth-child(5) { animation-delay: 480ms; }
+  .hero--split .hero__spec-card:nth-child(6) { animation-delay: 550ms; }
+  .hero--split .hero__spec-card:nth-child(7) { animation-delay: 620ms; }
+  .hero--split .hero__spec-card:nth-child(8) { animation-delay: 690ms; }
 }
