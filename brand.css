@@ -1098,10 +1098,10 @@ input, textarea, select { font: inherit; color: inherit; }
     animation: hero-fade-up 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
   }
   .hero--split .hero__split-eyebrow  { animation-delay: 0ms; }
-  .hero--split .hero__split-h1       { animation-delay: 130ms; }
-  .hero--split .hero__split-subhead  { animation-delay: 290ms; }
-  .hero--split .hero__split-cta-row  { animation-delay: 430ms; }
-  .hero--split .hero__split-price    { animation-delay: 520ms; }
+  .hero--split .hero__split-h1       { animation-delay: 120ms; }
+  .hero--split .hero__split-subhead  { animation-delay: 280ms; }
+  .hero--split .hero__split-cta-row  { animation-delay: 400ms; }
+  .hero--split .hero__split-price    { animation-delay: 480ms; }
   .hero--split .hero__spec-card:nth-child(1) { animation-delay: 200ms; }
   .hero--split .hero__spec-card:nth-child(2) { animation-delay: 270ms; }
   .hero--split .hero__spec-card:nth-child(3) { animation-delay: 340ms; }
