@@ -147,7 +147,10 @@
     <div class="container" style="max-width:680px">
       <h2 style="font-family:var(--font-display); font-weight:600; font-size:2rem; color:var(--navy); margin-bottom:8px">Send Adam a Message</h2>
       <p style="font-size:16px; color:var(--navy); margin-bottom:32px">Tell us about your home and we'll be in touch within one business day.</p>
-      <form id="contact-form" action="#" method="post" novalidate>
+      <form id="contact-form" action="https://formsubmit.co/adam@hometownbuildersclub.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New inquiry from hometownbuildersclub.com">
+        <input type="hidden" name="_next" value="https://www.hometownbuildersclub.com/thank-you">
+        <input type="hidden" name="_captcha" value="false">
         <div class="form-group">
           <label class="form-label" for="name">Full Name <span style="color:var(--gold)">*</span></label>
           <input class="form-input" type="text" id="name" name="name" autocomplete="name" required>
@@ -248,10 +251,29 @@
 
   var form = document.getElementById('contact-form');
   if(form){
+    function setErr(id, msg){
+      var el=document.getElementById(id);
+      if(!el) return;
+      el.style.borderColor='#c0392b';
+      var err=el.parentNode.querySelector('.field-err');
+      if(!err){err=document.createElement('span');err.className='field-err';err.style.cssText='font-size:0.75rem;color:#c0392b;margin-top:4px;display:block;';el.parentNode.appendChild(err);}
+      err.textContent=msg;
+    }
+    function clearErrs(){
+      form.querySelectorAll('.field-err').forEach(function(e){e.remove();});
+      form.querySelectorAll('input,textarea').forEach(function(e){e.style.borderColor='';});
+    }
     form.addEventListener('submit', function(e){
-      e.preventDefault();
-      document.getElementById('form-success').style.display = 'block';
-      form.reset();
+      clearErrs();
+      var valid=true;
+      var nameEl=document.getElementById('name');
+      var phoneEl=document.getElementById('phone');
+      var emailEl=document.getElementById('email');
+      if(!nameEl||!nameEl.value.trim()){setErr('name','Full name is required.');valid=false;}
+      if(!phoneEl||!phoneEl.value.trim()){setErr('phone','Phone number is required.');valid=false;}
+      if(!emailEl||!emailEl.value.trim()){setErr('email','Email address is required.');valid=false;}
+      else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())){setErr('email','Please enter a valid email address.');valid=false;}
+      if(!valid){e.preventDefault();return;}
     });
   }
 })();
