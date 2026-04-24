@@ -158,6 +158,10 @@ input, textarea, select { font: inherit; color: inherit; }
   text-decoration: none;
   flex-shrink: 0;
 }
+.nav__brand img {
+  height: 36px;
+  width: auto;
+}
 .nav__brand-name {
   font-family: var(--font-display);
   font-weight: 600;
