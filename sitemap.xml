@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.hometownbuildersclub.com/</loc><lastmod>2026-04-14</lastmod><priority>1.0</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/about</loc><lastmod>2026-04-14</lastmod><priority>0.9</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/services</loc><lastmod>2026-04-14</lastmod><priority>0.9</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/for-trade-partners</loc><lastmod>2026-04-14</lastmod><priority>0.9</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/faq</loc><lastmod>2026-04-14</lastmod><priority>0.8</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/contact</loc><lastmod>2026-04-14</lastmod><priority>0.8</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/blog</loc><lastmod>2026-04-14</lastmod><priority>0.8</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/blog/planning-your-renovation</loc><lastmod>2026-04-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/blog/understanding-contractor-bids</loc><lastmod>2026-04-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/blog/home-advisor-vs-contractor</loc><lastmod>2026-04-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/blog/maintenance-schedule</loc><lastmod>2026-04-14</lastmod><priority>0.7</priority></url>
-  <url><loc>https://www.hometownbuildersclub.com/blog/when-to-update-before-selling</loc><lastmod>2026-04-14</lastmod><priority>0.7</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/</loc><lastmod>2026-04-24</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/how-it-works</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/for-realtors</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/for-trade-partners</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/meet-adam</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/areas-served</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/faq</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/contact</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/blog</loc><lastmod>2026-04-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/blog/planning-your-renovation</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/blog/understanding-contractor-bids</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/blog/home-advisor-vs-contractor</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/blog/maintenance-schedule</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.hometownbuildersclub.com/blog/when-to-update-before-selling</loc><lastmod>2026-04-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
