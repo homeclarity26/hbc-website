@@ -1,5 +1,5 @@
 /* ============================================================
-   APP.JS — Interactivity
+   APP.JS. Interactivity
    Home Clarity Report
    homeclarityreport.com
    ============================================================ */
@@ -183,7 +183,7 @@
       });
     });
 
-    /* ── Contact Form — Formspree AJAX ── */
+    /* ── Contact Form. Formspree AJAX ── */
     var contactForm = document.getElementById('hcr-contact-form');
     var formSuccess = document.getElementById('hcr-form-success');
 
@@ -271,7 +271,7 @@
     if (shown || dismissed) return;
     shown = true;
 
-    // Initialise Calendly widget now (lazy — avoids loading it on every page)
+    // Initialise Calendly widget now (lazy, avoids loading it on every page)
     if (window.Calendly && typeof window.Calendly.initInlineWidgets === 'function') {
       window.Calendly.initInlineWidgets();
     }
@@ -306,7 +306,7 @@
   var timer = setInterval(function () {
     timeOnPage += 1;
     if (timeOnPage >= 30 && !shown && !dismissed) {
-      // On mobile there's no cursor leave — show after 30s of inactivity
+      // On mobile there's no cursor leave, show after 30s of inactivity
       // Only trigger once per session
       clearInterval(timer);
     }
