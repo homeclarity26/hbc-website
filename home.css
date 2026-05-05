@@ -181,6 +181,8 @@
   margin: 0 0 28px;
 }
 .home-hero__h1--center .row + .row { margin-top: 0.06em; }
+/* Optical alignment: in italic Instrument Serif, the H's vertical stem reads further left than the W's diagonal, so nudge HOW right a hair so first-letter edges align optically. */
+.home-hero__h1 .row:first-child .word { padding-left: 0.14em; }
 .home-hero__sub--center {
   text-align: center;
   max-width: 60ch;
