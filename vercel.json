@@ -25,7 +25,12 @@
     { "source": "/blog/find-remodeler-without-angi-homeadvisor", "destination": "/blog/find-remodeler-without-angi-homeadvisor.html" },
     { "source": "/blog/seven-signs-wrong-contractor-on-angi", "destination": "/blog/seven-signs-wrong-contractor-on-angi.html" },
     { "source": "/vs-angi", "destination": "/vs-angi.html" },
-    { "source": "/vs-homeadvisor", "destination": "/vs-homeadvisor.html" }
+    { "source": "/vs-homeadvisor", "destination": "/vs-homeadvisor.html" },
+    { "source": "/start", "destination": "/start.html" },
+    { "source": "/start/before-you-hire-a-realtor", "destination": "/start/before-you-hire-a-realtor.html" },
+    { "source": "/start/before-you-hire-an-architect", "destination": "/start/before-you-hire-an-architect.html" },
+    { "source": "/start/before-you-hire-a-designer", "destination": "/start/before-you-hire-a-designer.html" },
+    { "source": "/start/before-you-hire-a-contractor", "destination": "/start/before-you-hire-a-contractor.html" }
   ],
   "headers": [
     {
