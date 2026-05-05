@@ -125,6 +125,9 @@
   font-style: italic;
   color: var(--gold-light, #D4A574);
   letter-spacing: 0.01em;
+  display: inline-block;
+  width: 2.6em;
+  text-align: left;
   margin-right: 0.2em;
 }
 
@@ -170,7 +173,9 @@
 .home-hero__col--center .home-hero__eyebrow { margin-bottom: 24px; }
 .home-hero__h1--center {
   max-width: none;
-  text-align: center;
+  /* Stack the rows centered as a group, but left-align the rows themselves so HOW/WHAT/WHO line up vertically. */
+  display: inline-block;
+  text-align: left;
   line-height: 1.05;
   font-size: clamp(2rem, 1.1rem + 3.6vw, 4.25rem);
   margin: 0 0 28px;
