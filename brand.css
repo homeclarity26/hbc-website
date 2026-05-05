@@ -1196,3 +1196,74 @@ input, textarea, select { font: inherit; color: inherit; }
   .hero--split .hero__spec-card:nth-child(7) { animation-delay: 620ms; }
   .hero--split .hero__spec-card:nth-child(8) { animation-delay: 690ms; }
 }
+
+/* ============================================================
+   STICKY MOBILE CTA BAR
+   Appears after 600px scroll on mobile only.
+   Two clean actions: Call + Book.
+   ============================================================ */
+.mobile-cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  display: none;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(10, 22, 40, 0.97);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-top: 1px solid rgba(184, 115, 51, 0.35);
+  box-shadow: 0 -8px 24px rgba(0,0,0,0.18);
+  transform: translateY(110%);
+  transition: transform .28s ease;
+}
+.mobile-cta-bar.is-visible {
+  transform: translateY(0);
+}
+.mobile-cta-bar__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.mobile-cta-bar__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  border-radius: 6px;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.1;
+  transition: transform .12s ease, background .2s ease;
+}
+.mobile-cta-bar__btn:active {
+  transform: scale(0.98);
+}
+.mobile-cta-bar__btn--call {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.mobile-cta-bar__btn--call:hover { background: rgba(255,255,255,0.14); }
+.mobile-cta-bar__btn--book {
+  background: var(--gold, #B87333);
+  color: #fff;
+}
+.mobile-cta-bar__btn--book:hover { background: #a3651b; }
+.mobile-cta-bar__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .mobile-cta-bar { display: block; }
+  body.has-mobile-cta { padding-bottom: 72px; }
+}

@@ -117,5 +117,41 @@
     <div class="container"><p style="font-size:0.8rem;">&copy; 2026 Hometown Builders Club LLC · <a href="/" style="color:rgba(255,255,255,0.5);text-decoration:none;">hometownbuildersclub.com</a> · (330) 203-1331</p></div>
   </footer>
   <script src="/app.js" defer></script>
+<!-- STICKY MOBILE CTA BAR -->
+<div class="mobile-cta-bar" id="mobile-cta-bar" role="region" aria-label="Quick actions">
+  <div class="mobile-cta-bar__inner">
+    <a href="tel:+13302031331" class="mobile-cta-bar__btn mobile-cta-bar__btn--call" aria-label="Call (330) 203-1331">
+      <svg class="mobile-cta-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call Adam</span>
+    </a>
+    <a href="/contact" class="mobile-cta-bar__btn mobile-cta-bar__btn--book" aria-label="Book a discovery call">
+      <span>Book a Discovery Call</span>
+    </a>
+  </div>
+</div>
+<script>
+(function(){
+  var bar = document.getElementById('mobile-cta-bar');
+  if(!bar) return;
+  var threshold = 600;
+  var shown = false;
+  function check(){
+    var y = window.scrollY || window.pageYOffset;
+    if(y > threshold && !shown){
+      bar.classList.add('is-visible');
+      document.body.classList.add('has-mobile-cta');
+      shown = true;
+    } else if(y <= threshold && shown){
+      bar.classList.remove('is-visible');
+      document.body.classList.remove('has-mobile-cta');
+      shown = false;
+    }
+  }
+  window.addEventListener('scroll', check, {passive:true});
+  check();
+})();
+</script>
+<!-- END STICKY MOBILE CTA BAR -->
+
 </body>
 </html>
