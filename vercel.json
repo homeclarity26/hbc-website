@@ -31,7 +31,15 @@
     { "source": "/start/before-you-hire-a-realtor", "destination": "/start/before-you-hire-a-realtor.html" },
     { "source": "/start/before-you-hire-an-architect", "destination": "/start/before-you-hire-an-architect.html" },
     { "source": "/start/before-you-hire-a-designer", "destination": "/start/before-you-hire-a-designer.html" },
-    { "source": "/start/before-you-hire-a-contractor", "destination": "/start/before-you-hire-a-contractor.html" }
+    { "source": "/start/before-you-hire-a-contractor", "destination": "/start/before-you-hire-a-contractor.html" },
+    { "source": "/locations/hudson", "destination": "/locations/hudson.html" },
+    { "source": "/locations/bath-township", "destination": "/locations/bath-township.html" },
+    { "source": "/locations/cuyahoga-falls", "destination": "/locations/cuyahoga-falls.html" },
+    { "source": "/locations/fairlawn", "destination": "/locations/fairlawn.html" },
+    { "source": "/locations/montrose-ghent", "destination": "/locations/montrose-ghent.html" },
+    { "source": "/locations/peninsula", "destination": "/locations/peninsula.html" },
+    { "source": "/locations/stow", "destination": "/locations/stow.html" },
+    { "source": "/locations/tallmadge", "destination": "/locations/tallmadge.html" }
   ],
   "headers": [
     {
