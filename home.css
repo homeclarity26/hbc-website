@@ -158,6 +158,15 @@
 @media (max-width: 720px) {
   .home-hero__inner { padding: 72px 20px 56px; }
   .home-hero__h1 { max-width: 100%; }
+
+  /* Let the kitchen image breathe on mobile while keeping text legible.
+     Lighter overall veil + focused dark scrim under the text block. */
+  .home-hero__bg img { object-position: center 42%; }
+  .home-hero__veil {
+    background:
+      radial-gradient(130% 75% at 50% 80%, rgba(10,22,40,0.94) 0%, rgba(10,22,40,0.82) 36%, rgba(10,22,40,0.35) 68%, rgba(10,22,40,0.12) 100%),
+      linear-gradient(180deg, rgba(10,22,40,0.30) 0%, rgba(10,22,40,0.08) 28%, rgba(10,22,40,0.50) 100%);
+  }
 }
 
 /* Centered hero variant (eyebrow + headline + subhead + wizard pill) */
