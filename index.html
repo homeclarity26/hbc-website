@@ -340,23 +340,23 @@
           <!-- STEP 3: When are you thinking? -->
           <section class="wizard-step" data-step="3">
             <h2 class="wizard-step__title">When are you thinking?</h2>
-            <p class="wizard-step__sub">There's no wrong answer. Even "someday" is useful.</p>
+            <p class="wizard-step__sub">There's no wrong answer. Even "just researching" is useful.</p>
             <div class="wizard-cards">
-              <button type="button" class="wizard-card" data-choice="now">
-                <span class="wizard-card__title">Right now</span>
-                <span class="wizard-card__body">Within the next 30 to 90 days.</span>
+              <button type="button" class="wizard-card" data-choice="asap">
+                <span class="wizard-card__title">As soon as possible</span>
+                <span class="wizard-card__body">Next 2 weeks or sooner.</span>
               </button>
               <button type="button" class="wizard-card" data-choice="this-year">
                 <span class="wizard-card__title">This year</span>
                 <span class="wizard-card__body">In the next 6 to 12 months.</span>
               </button>
               <button type="button" class="wizard-card" data-choice="next-year">
-                <span class="wizard-card__title">Next year or later</span>
+                <span class="wizard-card__title">Next year</span>
                 <span class="wizard-card__body">Planning ahead, doing my homework.</span>
               </button>
-              <button type="button" class="wizard-card" data-choice="someday">
-                <span class="wizard-card__title">Someday</span>
-                <span class="wizard-card__body">No timeline. Just thinking.</span>
+              <button type="button" class="wizard-card" data-choice="researching">
+                <span class="wizard-card__title">Just researching</span>
+                <span class="wizard-card__body">No timeline. Gathering ideas.</span>
               </button>
             </div>
             <div class="wizard-step__nav">
@@ -369,9 +369,9 @@
           <section class="wizard-step" data-step="4">
             <h2 class="wizard-step__title">Let's talk about your home.</h2>
             <p class="wizard-step__sub">A 30 minute discovery call with your HBC advisor. No invoice. No contract. Just a conversation.</p>
-            <div class="wizard-step__nav wizard-step__nav--final">
+            <div id="wizard-calendly" class="wizard-calendly" data-calendly-url="https://calendly.com/homeclarityreport/30min"></div>
+            <div class="wizard-step__nav">
               <button type="button" class="wizard-back" data-prev="3">Back</button>
-              <a href="https://calendly.com/homeclarityreport/30min" class="btn btn-primary" target="_blank" rel="noopener">Schedule My Discovery Call</a>
             </div>
           </section>
         </div>
@@ -1014,43 +1014,184 @@
     });
   });
 
-  /* Capture lead via FormSubmit before sending user to Calendly.
-     Fires once per session when user reaches step 4 with a valid email. */
-  var leadCaptured = false;
-  function captureLead(){
-    if(leadCaptured) return;
-    var emailInput = document.getElementById('wizard-email');
-    var email = emailInput ? (emailInput.value || '').trim() : '';
-    if(!email || email.indexOf('@') === -1) return;
-    var step2 = modal.querySelector('.wizard-step[data-step="2"] .wizard-card.is-selected');
-    var step3 = modal.querySelector('.wizard-step[data-step="3"] .wizard-card.is-selected');
-    var mind = step2 ? step2.getAttribute('data-choice') : '';
-    var when = step3 ? step3.getAttribute('data-choice') : '';
-    var honey = document.getElementById('wizard-hp');
-    if(honey && honey.value) return;
+  /* =========================================================
+     PROGRESSIVE LEAD CAPTURE
+     Sends a lead to FormSubmit at every step the user reaches,
+     not just on Calendly click. Each fire updates the same
+     conversation thread so partial leads never go missing.
+     FormSubmit endpoint is the activated hash (one-time email
+     setup completed 2026-05-07).
+     ========================================================= */
+  var FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/98bd8828674d14de845b19fd1f3a6e87';
+  var stepReached = 1;
+  var lastSentSignature = '';
+  var sessionId = (function(){
+    try {
+      var d = new Date();
+      return 'hbc-' + d.getTime().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+    } catch(e){ return 'hbc-' + Date.now(); }
+  })();
+
+  function getEmail(){
+    var el = document.getElementById('wizard-email');
+    var v = el ? (el.value || '').trim() : '';
+    return (v && v.indexOf('@') > 0) ? v : '';
+  }
+  function getMind(){
+    var c = modal.querySelector('.wizard-step[data-step="2"] .wizard-card.is-selected');
+    return c ? c.getAttribute('data-choice') : '';
+  }
+  function getWhen(){
+    var c = modal.querySelector('.wizard-step[data-step="3"] .wizard-card.is-selected');
+    return c ? c.getAttribute('data-choice') : '';
+  }
+  function honeypotTripped(){
+    var hp = document.getElementById('wizard-hp');
+    return !!(hp && hp.value);
+  }
+
+  /* Send lead to FormSubmit. Idempotent on the same payload
+     so repeat clicks do not spam the inbox. */
+  function sendLead(stage, opts){
+    if(honeypotTripped()) return;
+    var email = getEmail();
+    if(!email) return;
+    var mind = getMind();
+    var when = getWhen();
+    var sig = [email, mind, when, stage].join('|');
+    if(sig === lastSentSignature) return;
+    lastSentSignature = sig;
+
     var fd = new FormData();
+    fd.append('session_id', sessionId);
     fd.append('email', email);
-    fd.append('on_my_mind', mind || 'not specified');
-    fd.append('timing', when || 'not specified');
+    fd.append('on_my_mind', mind || 'not yet selected');
+    fd.append('timing', when || 'not yet selected');
+    fd.append('stage_reached', stage);
+    fd.append('booked_call', (opts && opts.booked) ? 'YES' : 'No (still in flow)');
     fd.append('source', 'Homepage wizard (Discovery Call flow)');
-    fd.append('_subject', 'New wizard lead from hometownbuildersclub.com');
+    fd.append('captured_at', new Date().toISOString());
+    fd.append('_subject', 'HBC wizard lead: ' + stage + ' (' + email + ')');
     fd.append('_captcha', 'false');
     fd.append('_template', 'table');
-    fetch('https://formsubmit.co/ajax/adam@hometownbuildersclub.com', {
-      method: 'POST',
-      body: fd
-    }).catch(function(){ /* silent. lead capture is best-effort. */ });
-    leadCaptured = true;
+
+    var beacon = (opts && opts.useBeacon) && typeof navigator.sendBeacon === 'function';
+    if(beacon){
+      try { navigator.sendBeacon(FORMSUBMIT_ENDPOINT, fd); return; } catch(e){}
+    }
+    fetch(FORMSUBMIT_ENDPOINT, { method: 'POST', body: fd, keepalive: true })
+      .catch(function(){ /* best effort. */ });
   }
+
+  /* Wire captures to every meaningful interaction. */
   modal.querySelectorAll('.wizard-next').forEach(function(btn){
     btn.addEventListener('click', function(){
-      if(btn.getAttribute('data-next') === '4') captureLead();
+      var next = parseInt(btn.getAttribute('data-next'), 10) || 1;
+      stepReached = Math.max(stepReached, next);
+      if(next === 2) sendLead('Step 1: email captured');
+      if(next === 3) sendLead('Step 2: project intent selected');
+      if(next === 4) sendLead('Step 3: timing selected');
     });
   });
-  var calendlyBtn = modal.querySelector('a[href*="calendly.com"]');
-  if(calendlyBtn){
-    calendlyBtn.addEventListener('click', captureLead);
+  /* Also fire on selection clicks so if they pick something then bail without
+     hitting Continue, we still have their answer. */
+  modal.querySelectorAll('.wizard-step[data-step="2"] .wizard-card').forEach(function(c){
+    c.addEventListener('click', function(){
+      setTimeout(function(){ sendLead('Step 2: project intent selected'); }, 50);
+    });
+  });
+  modal.querySelectorAll('.wizard-step[data-step="3"] .wizard-card').forEach(function(c){
+    c.addEventListener('click', function(){
+      setTimeout(function(){ sendLead('Step 3: timing selected'); }, 50);
+    });
+  });
+
+  /* Abandonment safety net: if the user closes the tab mid-flow, fire one
+     last beacon with whatever we have. */
+  window.addEventListener('beforeunload', function(){
+    if(getEmail() && stepReached < 4){
+      sendLead('Abandoned at step ' + stepReached, { useBeacon: true });
+    }
+  });
+
+  /* =========================================================
+     CALENDLY INLINE EMBED
+     Loads Calendly inside step 4 with the user's email
+     prefilled and locked. Their step 2 + step 3 answers pass
+     through as utm_source / utm_content so they appear in
+     the Calendly booking notification.
+     Listens for the calendly.event_scheduled postMessage so
+     we can fire a final "booked" lead update.
+     ========================================================= */
+  var calendlyHost = document.getElementById('wizard-calendly');
+  var calendlyLoaded = false;
+  function loadCalendlyScript(cb){
+    if(window.Calendly){ cb(); return; }
+    var existing = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
+    if(existing){
+      existing.addEventListener('load', cb);
+      return;
+    }
+    var s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    s.onload = cb;
+    document.head.appendChild(s);
   }
+  function loadCalendlyCSS(){
+    if(document.querySelector('link[href*="assets.calendly.com/assets/external/widget.css"]')) return;
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(l);
+  }
+  function mountCalendly(){
+    if(!calendlyHost || calendlyLoaded) return;
+    var email = getEmail();
+    if(!email) return; /* should never happen, but guard. */
+    var baseUrl = calendlyHost.getAttribute('data-calendly-url');
+    var mind = getMind() || 'not-specified';
+    var when = getWhen() || 'not-specified';
+    /* Hide Calendly cosmetic chrome that duplicates info we already showed. */
+    var styled = baseUrl + '?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=B87333';
+    loadCalendlyCSS();
+    loadCalendlyScript(function(){
+      try {
+        calendlyHost.innerHTML = '';
+        window.Calendly.initInlineWidget({
+          url: styled,
+          parentElement: calendlyHost,
+          prefill: { email: email },
+          utm: {
+            utmSource: 'hbc-wizard',
+            utmMedium: 'website',
+            utmCampaign: 'discovery-call',
+            utmContent: 'mind=' + mind + '|timing=' + when,
+            utmTerm: sessionId
+          }
+        });
+        calendlyLoaded = true;
+      } catch(e){ /* silent. */ }
+    });
+  }
+  /* Detect when the user actually books a time. */
+  window.addEventListener('message', function(e){
+    if(!e || !e.data || typeof e.data !== 'object') return;
+    if(typeof e.data.event !== 'string') return;
+    if(e.data.event.indexOf('calendly') !== 0) return;
+    if(e.data.event === 'calendly.event_scheduled'){
+      sendLead('BOOKED: discovery call scheduled', { booked: true });
+    }
+  });
+
+  /* Mount Calendly the first time the user lands on step 4. */
+  modal.querySelectorAll('.wizard-next').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(parseInt(btn.getAttribute('data-next'), 10) === 4){
+        setTimeout(mountCalendly, 100);
+      }
+    });
+  });
 })();
 </script>
 

@@ -628,6 +628,21 @@
   padding-top: 8px;
 }
 .wizard-step__nav--final { justify-content: space-between; }
+
+/* Calendly inline embed inside Step 4. Fills the cream form column,
+   honors the modal's available height, and stays scrollable. */
+.wizard-calendly {
+  margin: 8px -8px 16px;
+  min-height: 560px;
+  height: clamp(560px, 60vh, 720px);
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(10, 22, 40, 0.04);
+}
+.wizard-calendly iframe { border: 0 !important; }
+@media (max-width: 860px){
+  .wizard-calendly { min-height: 640px; height: 70vh; margin: 8px 0 12px; }
+}
 .wizard-step__nav .btn-primary { margin-left: auto; }
 .wizard-back {
   background: transparent;
