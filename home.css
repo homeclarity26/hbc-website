@@ -1180,3 +1180,187 @@
 @media (max-width: 760px) {
   .quick-answers__grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   VALUE STACK + PRICE REVEAL + COST OF INACTION
+   May 2026 pricing psychology section. Sits directly under hero.
+   Numbers MUST stay synced with FAQ + services.html + llms.txt.
+   ========================================================= */
+.value-stack__head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+.value-stack__h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--navy);
+  margin: 0 0 18px;
+}
+.value-stack__lede { margin-left: auto; margin-right: auto; }
+
+.value-stack__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 32px clamp(20px, 4vw, 48px);
+  max-width: 880px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(184, 115, 51, 0.18);
+  border-radius: 4px;
+}
+.value-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px dotted rgba(10, 22, 40, 0.18);
+}
+.value-row:last-child { border-bottom: none; }
+.value-row__item {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 0.875rem + 0.25vw, 1.0625rem);
+  color: var(--navy);
+  line-height: 1.45;
+}
+.value-row__dots {
+  border-bottom: 1px dotted rgba(10, 22, 40, 0.25);
+  align-self: end;
+  height: 0;
+  margin-bottom: 6px;
+}
+.value-row__price {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(10, 22, 40, 0.7);
+  white-space: nowrap;
+}
+.value-row__price--accent { color: var(--gold); font-weight: 600; }
+.value-row--priceless .value-row__item { font-style: normal; color: var(--navy); font-weight: 500; }
+
+.value-stack__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 880px;
+  margin: 18px auto 0;
+  padding: 22px clamp(20px, 4vw, 48px);
+  background: var(--navy);
+  color: var(--cream);
+  border-radius: 4px;
+}
+.value-stack__total-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(237, 233, 225, 0.75);
+}
+.value-stack__total-amount {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem);
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+}
+
+.price-reveal {
+  max-width: 880px;
+  margin: 56px auto 0;
+  padding: 48px clamp(24px, 5vw, 56px);
+  background: var(--cream);
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
+}
+.price-reveal__lead {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 14px;
+}
+.price-reveal__price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.5rem, 2.5rem + 4vw, 5.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+.price-reveal__price-flat {
+  font-size: 0.45em;
+  color: rgba(10, 22, 40, 0.65);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.price-reveal__terms {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  color: var(--navy);
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+.price-reveal__savings {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(10, 22, 40, 0.78);
+  margin: 0;
+  line-height: 1.55;
+  max-width: 56ch;
+  margin-inline: auto;
+}
+.price-reveal__savings strong { color: var(--gold); font-weight: 600; }
+
+.price-warning {
+  max-width: 880px;
+  margin: 28px auto 0;
+  padding: 24px clamp(20px, 4vw, 36px);
+  background: rgba(183, 65, 14, 0.06);
+  border-left: 3px solid var(--rust, #B7410E);
+  border-radius: 0 4px 4px 0;
+}
+.price-warning__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rust, #B7410E);
+  margin: 0 0 10px;
+}
+.price-warning__body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--navy);
+  line-height: 1.55;
+  margin: 0;
+}
+.price-warning__body strong { color: var(--rust, #B7410E); font-weight: 600; }
+
+.value-stack__cta {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 0;
+}
+.wizard-pill--inline {
+  background: var(--gold);
+  color: var(--cream);
+  border-color: var(--gold);
+}
+.wizard-pill--inline:hover {
+  background: var(--gold-hover, #A0622A);
+  border-color: var(--gold-hover, #A0622A);
+}
+
+@media (max-width: 600px) {
+  .value-row { grid-template-columns: 1fr; gap: 4px; }
+  .value-row__dots { display: none; }
+  .value-row__price { font-size: 0.75rem; opacity: 0.85; }
+  .value-stack__total { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .price-reveal { padding: 36px 22px; }
+}
