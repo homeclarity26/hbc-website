@@ -324,6 +324,8 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  max-height: 92vh;
 }
 .wizard-modal__progress {
   font-family: var(--font-mono);
@@ -629,19 +631,29 @@
 }
 .wizard-step__nav--final { justify-content: space-between; }
 
-/* Calendly inline embed inside Step 4. Fills the cream form column,
-   honors the modal's available height, and stays scrollable. */
+/* Calendly inline embed inside Step 4. The iframe needs to be tall
+   enough that Calendly's own internal layout shows the full booking
+   form (name + email + phone + message + submit) without Calendly
+   triggering its own scrollbar. The cream form column scrolls the
+   page so the user reaches the submit button by scrolling the modal,
+   not the iframe. */
 .wizard-calendly {
   margin: 8px -8px 16px;
-  min-height: 560px;
-  height: clamp(560px, 60vh, 720px);
+  min-height: 1100px;
+  height: 1100px;
   border-radius: 4px;
-  overflow: hidden;
+  overflow: visible;
   background: rgba(10, 22, 40, 0.04);
+  flex-shrink: 0;
 }
-.wizard-calendly iframe { border: 0 !important; }
+.wizard-calendly iframe {
+  border: 0 !important;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 @media (max-width: 860px){
-  .wizard-calendly { min-height: 640px; height: 70vh; margin: 8px 0 12px; }
+  .wizard-calendly { min-height: 1180px; height: 1180px; margin: 8px 0 12px; }
 }
 .wizard-step__nav .btn-primary { margin-left: auto; }
 .wizard-back {
