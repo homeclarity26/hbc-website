@@ -368,7 +368,7 @@
           <!-- STEP 4: Schedule -->
           <section class="wizard-step" data-step="4">
             <h2 class="wizard-step__title">Let's talk about your home.</h2>
-            <p class="wizard-step__sub">A 30 minute discovery call with Adam. No invoice. No contract. Just a conversation.</p>
+            <p class="wizard-step__sub">A 30 minute discovery call with your HBC advisor. No invoice. No contract. Just a conversation.</p>
             <div class="wizard-step__nav wizard-step__nav--final">
               <button type="button" class="wizard-back" data-prev="3">Back</button>
               <a href="https://calendly.com/homeclarityreport/30min" class="btn btn-primary" target="_blank" rel="noopener">Schedule My Discovery Call</a>
@@ -376,9 +376,70 @@
           </section>
         </div>
 
-        <!-- 3D home image column (desktop only) -->
-        <div class="wizard-modal__image" aria-hidden="true">
-          <img src="./assets/wizard-3d-home.jpg" alt="" loading="lazy" decoding="async">
+        <!-- =========================================================
+             OUTCOME PANEL. Swaps with the active wizard step.
+             Step 1: outcome + timeline truth
+             Step 2: three Summit County outcome cards (proof)
+             Step 3: real timeline (5 days starts post site-meeting)
+             Step 4: the math close, no photo, brand-led
+             ========================================================= -->
+        <div class="wizard-modal__outcome" aria-hidden="true">
+          <div class="wizard-panel is-active" data-panel="1">
+            <p class="wizard-panel__eyebrow">THE HOME CLARITY REPORT</p>
+            <p class="wizard-panel__lede">In 5 business days from your site meeting, you will know what your home is worth, what it needs, and what it should cost.</p>
+            <p class="wizard-panel__foot">Delivered in person. Yours forever.</p>
+          </div>
+
+          <div class="wizard-panel" data-panel="2" hidden>
+            <p class="wizard-panel__eyebrow">FIELD NOTES FROM SUMMIT COUNTY</p>
+            <ul class="wizard-outcomes" role="list">
+              <li class="wizard-outcome-card">
+                <p class="wizard-outcome-card__tag">HUDSON  ·  KITCHEN + FIRST FLOOR</p>
+                <p class="wizard-outcome-card__body">Saved <strong>$23,400</strong> by re-scoping the cabinetry order before bids went out.</p>
+              </li>
+              <li class="wizard-outcome-card">
+                <p class="wizard-outcome-card__tag">BATH TOWNSHIP  ·  WHOLE HOUSE PLAN</p>
+                <p class="wizard-outcome-card__body">Avoided a <strong>$48,000</strong> foundation surprise. Caught it on day one of the site visit.</p>
+              </li>
+              <li class="wizard-outcome-card">
+                <p class="wizard-outcome-card__tag">STOW  ·  BUYING DECISION</p>
+                <p class="wizard-outcome-card__body">Walked away from the wrong house. Found the right one six weeks later.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="wizard-panel" data-panel="3" hidden>
+            <p class="wizard-panel__eyebrow">WHAT HAPPENS NEXT</p>
+            <ol class="wizard-timeline" role="list">
+              <li class="wizard-timeline__step">
+                <span class="wizard-timeline__when">Today</span>
+                <span class="wizard-timeline__what">30 minute discovery call. Decide if HBC is right for you.</span>
+              </li>
+              <li class="wizard-timeline__step">
+                <span class="wizard-timeline__when">Within 2 weeks</span>
+                <span class="wizard-timeline__what">Site meeting at your home. 2 to 3 hours with your HBC advisor.</span>
+              </li>
+              <li class="wizard-timeline__step">
+                <span class="wizard-timeline__when">5 business days later</span>
+                <span class="wizard-timeline__what">Your Home Clarity Report ships. Plus lifetime portal access.</span>
+              </li>
+              <li class="wizard-timeline__step">
+                <span class="wizard-timeline__when">Forever</span>
+                <span class="wizard-timeline__what">Direct line to your HBC advisor. No expiration.</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="wizard-panel" data-panel="4" hidden>
+            <p class="wizard-panel__eyebrow">THE MATH</p>
+            <ul class="wizard-math" role="list">
+              <li class="wizard-math__row"><span class="wizard-math__amount">$16,400+</span><span class="wizard-math__label">Total stated value of what you receive</span></li>
+              <li class="wizard-math__row"><span class="wizard-math__amount">$4,500</span><span class="wizard-math__label">What you pay. Flat. One time.</span></li>
+              <li class="wizard-math__row"><span class="wizard-math__amount">$16,100</span><span class="wizard-math__label">Average savings on the first project after delivery</span></li>
+              <li class="wizard-math__row"><span class="wizard-math__amount">Forever</span><span class="wizard-math__label">Your HBC advisor relationship</span></li>
+            </ul>
+            <p class="wizard-panel__close">You are 30 minutes from clarity.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -898,11 +959,17 @@
   var progressEl = document.getElementById('wizard-progress');
   if(!modal || (!openBtn && extraOpenBtns.length === 0)) return;
   var steps = modal.querySelectorAll('.wizard-step');
+  var panels = modal.querySelectorAll('.wizard-panel');
   var totalSteps = steps.length;
 
   function setStep(n){
     steps.forEach(function(s){
       s.classList.toggle('is-active', String(s.dataset.step) === String(n));
+    });
+    panels.forEach(function(p){
+      var isActive = String(p.dataset.panel) === String(n);
+      p.hidden = !isActive;
+      p.classList.toggle('is-active', isActive);
     });
     if(progressEl) progressEl.textContent = 'Step ' + n + ' of ' + totalSteps;
   }

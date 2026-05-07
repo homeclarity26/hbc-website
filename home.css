@@ -333,26 +333,194 @@
   color: var(--gold);
   margin: 0 0 24px;
 }
-.wizard-modal__image {
+/* =========================================================
+   WIZARD OUTCOME PANEL
+   Replaces the static image. 4 panels, one per step. Sells
+   the outcome through escalating value across the flow.
+   ========================================================= */
+.wizard-modal__outcome {
   background: var(--navy);
+  color: var(--cream);
+  padding: clamp(36px, 4vw, 56px) clamp(32px, 4vw, 52px);
+  display: flex;
+  align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: 92vh;
 }
-.wizard-modal__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 78%;
-  display: block;
-}
-/* Subtle navy gradient at top edge so the cream wizard panel reads cleanly
-   against the image when the modal is short. */
-.wizard-modal__image::after {
+.wizard-modal__outcome::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(10,22,40,0.18) 0%, rgba(10,22,40,0) 22%, rgba(10,22,40,0) 70%, rgba(10,22,40,0.32) 100%);
+  background: radial-gradient(ellipse at top right, rgba(184,115,51,0.10) 0%, rgba(184,115,51,0) 55%);
+}
+.wizard-panel {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 380ms ease, transform 380ms ease;
+}
+.wizard-panel.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.wizard-panel[hidden] { display: none; }
+
+.wizard-panel__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 28px;
+}
+.wizard-panel__lede {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin: 0 0 28px;
+}
+.wizard-panel__foot {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(237, 233, 225, 0.72);
+  margin: 0;
+  line-height: 1.5;
+}
+.wizard-panel__close {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem);
+  color: var(--gold);
+  margin: 22px 0 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* Panel 2: outcome cards */
+.wizard-outcomes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.wizard-outcome-card {
+  padding: 18px 22px;
+  background: rgba(237, 233, 225, 0.04);
+  border: 1px solid rgba(184, 115, 51, 0.28);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 4px 4px 0;
+}
+.wizard-outcome-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+.wizard-outcome-card__body {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--cream);
+  margin: 0;
+}
+.wizard-outcome-card__body strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Panel 3: timeline */
+.wizard-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  position: relative;
+}
+.wizard-timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: rgba(184, 115, 51, 0.35);
+}
+.wizard-timeline__step {
+  position: relative;
+  padding-left: 28px;
+}
+.wizard-timeline__step::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px var(--navy);
+}
+.wizard-timeline__when {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.wizard-timeline__what {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--cream);
+}
+
+/* Panel 4: math close */
+.wizard-math {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wizard-math__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 0;
+  border-bottom: 1px dotted rgba(184, 115, 51, 0.30);
+}
+.wizard-math__row:last-child { border-bottom: none; }
+.wizard-math__amount {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 1.2rem + 1.2vw, 2.25rem);
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.wizard-math__label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: rgba(237, 233, 225, 0.78);
+  line-height: 1.4;
 }
 
 /* Wizard steps */
@@ -487,8 +655,9 @@
     min-height: 0;
     height: 100%;
   }
-  .wizard-modal__image { display: none; }
+  .wizard-modal__outcome { display: none; }
   .wizard-cards { grid-template-columns: 1fr; }
+  .wizard-outcomes { gap: 12px; }
 }
 
 /* =========================================================
