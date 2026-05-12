@@ -669,6 +669,100 @@
 }
 .wizard-back:hover { color: var(--navy); }
 
+/* =========================================================
+   STEP 5: BOOKING CONFIRMATION
+   Replaces the wizard layout entirely. Outcome panel is hidden
+   so the thank-you message takes the full modal width.
+   ========================================================= */
+.wizard-modal__panel--confirmed .wizard-modal__grid {
+  grid-template-columns: 1fr;
+}
+.wizard-modal__panel--confirmed .wizard-modal__outcome {
+  display: none;
+}
+.wizard-modal__panel--confirmed .wizard-modal__steps {
+  padding: clamp(40px, 5vw, 72px);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+}
+.wizard-step--confirmed.is-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  flex: 0 1 auto;
+}
+.wizard-confirm__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 18px;
+}
+.wizard-step--confirmed .wizard-step__title {
+  font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem);
+  margin: 0 0 16px;
+}
+.wizard-step--confirmed .wizard-step__sub {
+  margin: 0 auto 28px;
+  max-width: 46ch;
+}
+.wizard-confirm__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid rgba(10, 22, 40, 0.10);
+  border-radius: 12px;
+  padding: 22px 24px;
+  width: 100%;
+  max-width: 460px;
+}
+.wizard-confirm__list li {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: rgba(10, 22, 40, 0.78);
+}
+.wizard-confirm__list strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+.wizard-confirm__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+.wizard-confirm__cta .btn-primary {
+  min-width: 220px;
+}
+.wizard-confirm__link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10, 22, 40, 0.6);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(10, 22, 40, 0.2);
+  padding-bottom: 2px;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+.wizard-confirm__link:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
 @media (max-width: 860px) {
   .wizard-modal { padding: 0; }
   .wizard-modal__panel {
@@ -685,6 +779,11 @@
   .wizard-modal__outcome { display: none; }
   .wizard-cards { grid-template-columns: 1fr; }
   .wizard-outcomes { gap: 12px; }
+  .wizard-modal__panel--confirmed .wizard-modal__steps {
+    padding: clamp(28px, 6vw, 40px);
+    min-height: 0;
+  }
+  .wizard-confirm__list { padding: 18px 18px; }
 }
 
 /* =========================================================

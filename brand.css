@@ -28,6 +28,23 @@
   --radius-btn:  4px;
   --radius-card: 6px;
   --shadow-card: 0 2px 12px rgba(10,22,40,0.08);
+
+  /* --- LEGACY ALIASES -------------------------------------
+     Older pages (about, services, blog/index, and several
+     long-form blog posts) were authored against an earlier
+     design system that used --color-* token names. Rather
+     than rewriting every inline style, we alias the old
+     names to the current brand tokens so those pages render
+     on the correct palette and typography. */
+  --color-primary:    var(--navy);
+  --color-navy:       var(--navy);
+  --color-bg:         var(--cream);
+  --color-surface:    var(--white);
+  --color-border:     rgba(10, 22, 40, 0.10);
+  --color-amber:      var(--gold);
+  --color-text-muted: var(--text-body);
+  --color-text-faint: var(--text-muted);
+  --shadow-sm:        0 1px 4px rgba(10, 22, 40, 0.06);
 }
 
 /* --- RESET TOKENS ------------------------------------------- */
@@ -88,6 +105,24 @@ input, textarea, select { font: inherit; color: inherit; }
 .bg-gold   { background: var(--gold); }
 
 /* --- LAYOUT ------------------------------------------------- */
+/* --- LEGACY NAV ALIAS --------------------------------------
+   Some pages use .nav__logo / .nav__cta as the wrapper.
+   Map them onto the canonical brand+actions slots. */
+.nav__logo { display: flex; align-items: center; }
+.nav__logo img { display: block; height: 36px; width: auto; }
+.nav .nav__cta:not(.btn) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(237, 233, 225, 0.35);
+}
+.btn-ghost:hover { background: rgba(237, 233, 225, 0.10); }
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
 .container {
   max-width: var(--max-w);
   margin: 0 auto;

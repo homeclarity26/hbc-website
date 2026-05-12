@@ -377,6 +377,24 @@
               <button type="button" class="wizard-back" data-prev="3">Back</button>
             </div>
           </section>
+
+          <!-- STEP 5: Booking confirmation. Shown only after Calendly fires
+               event_scheduled. Replaces the Calendly confirmation screen with
+               a branded thank-you and a path back to the site. -->
+          <section class="wizard-step wizard-step--confirmed" data-step="5">
+            <p class="wizard-confirm__eyebrow">YOU'RE ON THE CALENDAR</p>
+            <h2 class="wizard-step__title">See you soon.</h2>
+            <p class="wizard-step__sub">A confirmation just hit your inbox with the call details. Your HBC advisor will be ready with everything you shared today.</p>
+            <ul class="wizard-confirm__list">
+              <li><strong>Within minutes:</strong> Calendar invite and confirmation email.</li>
+              <li><strong>Day before:</strong> Reminder so you do not have to think about it.</li>
+              <li><strong>On the call:</strong> 30 honest minutes. No pitch.</li>
+            </ul>
+            <div class="wizard-confirm__cta">
+              <a href="/" class="btn btn-primary" data-wizard-home>Back to home</a>
+              <a href="/how-it-works" class="wizard-confirm__link">See how it works while you wait</a>
+            </div>
+          </section>
         </div>
 
         <!-- =========================================================
@@ -963,18 +981,36 @@
   if(!modal || (!openBtn && extraOpenBtns.length === 0)) return;
   var steps = modal.querySelectorAll('.wizard-step');
   var panels = modal.querySelectorAll('.wizard-panel');
-  var totalSteps = steps.length;
+  /* Confirmation step does not count toward 'Step X of N' since it is
+     not part of the funnel the user is moving through. */
+  var totalSteps = modal.querySelectorAll('.wizard-step:not(.wizard-step--confirmed)').length;
 
   function setStep(n){
+    var nStr = String(n);
     steps.forEach(function(s){
-      s.classList.toggle('is-active', String(s.dataset.step) === String(n));
+      s.classList.toggle('is-active', String(s.dataset.step) === nStr);
     });
     panels.forEach(function(p){
-      var isActive = String(p.dataset.panel) === String(n);
+      var isActive = String(p.dataset.panel) === nStr;
       p.hidden = !isActive;
       p.classList.toggle('is-active', isActive);
     });
-    if(progressEl) progressEl.textContent = 'Step ' + n + ' of ' + totalSteps;
+    /* On the confirmation step (5), hide the progress label and the
+       outcome panel so the thank-you takes the whole modal. */
+    var modalRoot = modal.querySelector('.wizard-modal__panel');
+    var isConfirm = nStr === '5';
+    if(modalRoot){
+      modalRoot.classList.toggle('wizard-modal__panel--confirmed', isConfirm);
+    }
+    if(progressEl){
+      if(isConfirm){
+        progressEl.textContent = '';
+        progressEl.style.display = 'none';
+      } else {
+        progressEl.style.display = '';
+        progressEl.textContent = 'Step ' + n + ' of ' + totalSteps;
+      }
+    }
   }
   function open(){
     modal.hidden = false;
@@ -1006,6 +1042,12 @@
       var p = btn.getAttribute('data-prev');
       if(p) setStep(p);
     });
+  });
+  /* Listen for the booking-confirmed signal from the inner Calendly
+     listener and advance to the confirmation screen. Calendly briefly
+     shows its own thank-you, so we delay 600ms to avoid a jarring jump. */
+  modal.addEventListener('hbc:booking-confirmed', function(){
+    setTimeout(function(){ setStep(5); }, 600);
   });
   modal.querySelectorAll('.wizard-cards').forEach(function(group){
     group.addEventListener('click', function(e){
@@ -1184,6 +1226,13 @@
     if(e.data.event.indexOf('calendly') !== 0) return;
     if(e.data.event === 'calendly.event_scheduled'){
       sendLead('BOOKED: discovery call scheduled', { booked: true });
+      try {
+        modal.dispatchEvent(new CustomEvent('hbc:booking-confirmed'));
+      } catch(err){
+        var ev = document.createEvent('Event');
+        ev.initEvent('hbc:booking-confirmed', true, true);
+        modal.dispatchEvent(ev);
+      }
     }
   });
 
