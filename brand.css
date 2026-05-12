@@ -208,17 +208,23 @@ input, textarea, select { font: inherit; color: inherit; }
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
   flex: 1;
   justify-content: center;
+  flex-wrap: nowrap;
 }
 .nav__link {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--navy);
   text-decoration: none;
   transition: color 150ms;
+  white-space: nowrap;
+}
+@media (max-width: 1280px) {
+  .nav__links { gap: 16px; }
+  .nav__link { font-size: 13px; }
 }
 .nav__link:hover { color: var(--gold); }
 .nav__link--active {
@@ -237,10 +243,8 @@ input, textarea, select { font: inherit; color: inherit; }
   flex-shrink: 0;
 }
 .nav__phone {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--navy);
-  text-decoration: none;
+  /* hidden on all viewports; phone lives in footer + mobile menu */
+  display: none;
 }
 .nav__phone:hover { color: var(--gold); }
 .nav__cta { font-size: 14px; padding: 10px 20px; }
@@ -269,13 +273,15 @@ input, textarea, select { font: inherit; color: inherit; }
   background: var(--navy);
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 32px;
+  justify-content: flex-start;
+  gap: 22px;
+  padding: 72px 24px 32px;
+  overflow-y: auto;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu__link {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--cream);
   text-decoration: none;
@@ -1176,11 +1182,14 @@ input, textarea, select { font: inherit; color: inherit; }
   .hero__split-cta-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .hero__spec-grid { grid-template-columns: 1fr 1fr; }
 }
+@media (max-width: 1100px) {
+  .nav__links { display: none; }
+  .nav__phone { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav__cta { display: none; }
+}
 @media (max-width: 768px) {
   :root { --section-pad: var(--section-pad-mobile); }
-  .nav__links  { display: none; }
-  .nav__phone  { display: none; }
-  .nav__hamburger { display: flex; }
   .grid-2, .grid-3, .grid-4, .split, .grid-2-3 { grid-template-columns: 1fr; }
   .steps  { grid-template-columns: 1fr; }
   .hero   { padding: 64px 0 48px; }

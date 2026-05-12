@@ -581,47 +581,12 @@
   </style>
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "@id": "https://www.hometownbuildersclub.com/concierge#service", "name": "HBC Concierge Monthly Home Management", "serviceType": "Home Services Management", "category": "Home Maintenance Concierge", "url": "https://www.hometownbuildersclub.com/concierge", "provider": {"@id": "https://www.hometownbuildersclub.com/#business"}, "areaServed": [{"@type": "AdministrativeArea", "name": "Summit County, Ohio"}], "audience": {"@type": "Audience", "audienceType": "Summit County homeowners"}, "description": "Monthly home management memberships. HBC coordinates every vendor and service for your home, you pay one bill, we handle everything.", "offers": [{"@type": "Offer", "name": "Essentials", "price": "199", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "199", "priceCurrency": "USD", "unitText": "per month"}}, {"@type": "Offer", "name": "Comfort", "price": "350", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "350", "priceCurrency": "USD", "unitText": "per month"}}, {"@type": "Offer", "name": "Premier", "price": "550", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "550", "priceCurrency": "USD", "unitText": "per month"}}, {"@type": "Offer", "name": "Snowbird", "price": "399", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "399", "priceCurrency": "USD", "unitText": "per month"}}]}</script>
+  <script src="/nav.js" defer></script>
 </head>
 <body>
 <a href="#main" class="sr-only">Skip to main content</a>
 
-<header>
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Hometown Builders Club. Home">
-        <img src="/assets/hbc-logo-horizontal-white.png" alt="Hometown Builders Club" height="36" style="display:block;">
-      </a>
-      <div class="nav__links">
-        <a href="/how-it-works" class="nav__link">How It Works</a>
-        <a href="/start" class="nav__link">Start Here</a>
-        <a href="/concierge" class="nav__link nav__link--active">Concierge</a>
-        <a href="/for-realtors" class="nav__link">For Realtors</a>
-        <a href="/for-trade-partners" class="nav__link">For Trade Partners</a>
-        <a href="/meet-adam" class="nav__link">Meet Adam</a>
-        <a href="/faq" class="nav__link">FAQ</a>
-      </div>
-      <div class="nav__actions">
-        <a href="tel:+13302031331" class="nav__phone">(330) 203-1331</a>
-        <a href="/contact" class="btn btn-primary nav__cta">Book a Call</a>
-        <button id="hamburger" class="nav__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-    </div>
-  </nav>
-  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <button id="mobile-close" class="mobile-menu__close" aria-label="Close menu">&times;</button>
-    <a href="/" class="mobile-menu__link">Home</a>
-    <a href="/how-it-works" class="mobile-menu__link">How It Works</a>
-    <a href="/start" class="mobile-menu__link">Start Here</a>
-    <a href="/concierge" class="mobile-menu__link mobile-menu__link--active">Concierge</a>
-    <a href="/for-realtors" class="mobile-menu__link">For Realtors</a>
-    <a href="/for-trade-partners" class="mobile-menu__link">For Trade Partners</a>
-    <a href="/meet-adam" class="mobile-menu__link">Meet Adam</a>
-    <a href="/faq" class="mobile-menu__link">FAQ</a>
-    <a href="/contact" class="mobile-menu__cta">Book a Call</a>
-    <a href="tel:+13302031331" class="mobile-menu__phone">(330) 203-1331</a>
-  </div>
-</header>
-
+<header data-nav></header>
 <main id="main">
 
   <!-- HERO -->
@@ -1018,32 +983,7 @@
   </div>
 </footer>
 
-<script>
-  (function(){
-    var hamb = document.getElementById('hamburger');
-    var menu = document.getElementById('mobile-menu');
-    var close = document.getElementById('mobile-close');
-    if(hamb && menu){
-      hamb.addEventListener('click', function(){
-        menu.classList.add('is-open');
-        hamb.setAttribute('aria-expanded','true');
-      });
-    }
-    if(close && menu){
-      close.addEventListener('click', function(){
-        menu.classList.remove('is-open');
-        if(hamb) hamb.setAttribute('aria-expanded','false');
-      });
-    }
-    document.querySelectorAll('.faq-item__trigger').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var item = btn.closest('.faq-item');
-        var open = item.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    });
-  })();
-</script>
+
 
 <!-- STICKY MOBILE CTA BAR -->
 <div class="mobile-cta-bar" id="mobile-cta-bar" role="region" aria-label="Quick actions">
