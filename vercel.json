@@ -27,6 +27,8 @@
     { "source": "/blog/seven-signs-wrong-contractor-on-angi", "destination": "/blog/seven-signs-wrong-contractor-on-angi.html" },
     { "source": "/vs-angi", "destination": "/vs-angi.html" },
     { "source": "/vs-homeadvisor", "destination": "/vs-homeadvisor.html" },
+    { "source": "/vs-design-build", "destination": "/vs-design-build.html" },
+    { "source": "/vs-general-contractor", "destination": "/vs-general-contractor.html" },
     { "source": "/start", "destination": "/start.html" },
     { "source": "/start/before-you-hire-a-realtor", "destination": "/start/before-you-hire-a-realtor.html" },
     { "source": "/start/before-you-hire-an-architect", "destination": "/start/before-you-hire-an-architect.html" },
