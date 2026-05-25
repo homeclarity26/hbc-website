@@ -1311,3 +1311,24 @@ input, textarea, select { font: inherit; color: inherit; }
   .mobile-cta-bar { display: block; }
   body.has-mobile-cta { padding-bottom: 72px; }
 }
+
+/* ============================================================
+   Lead-answer paragraphs (Gemini direct-answer optimization)
+   Renders as a cream callout that reads on any background.
+   ============================================================ */
+.lead-answer {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--navy);
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 18px 22px;
+  margin: 24px 0 32px;
+  max-width: 760px;
+  font-weight: 400;
+  border-radius: 2px;
+}
+@media (max-width: 768px) {
+  .lead-answer { font-size: 16px; padding: 14px 16px; }
+}

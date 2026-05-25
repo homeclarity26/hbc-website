@@ -64,6 +64,13 @@ NAV_PLACEHOLDER_RE = re.compile(r"<header[^>]*\bdata-nav\b[^>]*>", re.IGNORECASE
 NAV_SCRIPT_RE = re.compile(r"""<script[^>]+src=["']/?nav\.js["']""", re.IGNORECASE)
 RAW_HEADER_NAV_RE = re.compile(r"<header(?![^>]*\bdata-nav\b)[^>]*>", re.IGNORECASE)
 
+# AI Mode optimization checks
+AI_WEBSITE_SCHEMA_RE = re.compile(r'id="schema-ai-website"', re.IGNORECASE)
+JSON_LD_RE = re.compile(
+    r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>',
+    re.IGNORECASE | re.DOTALL,
+)
+
 # Strip <script>, <style>, and HTML tags for visible-copy checks
 SCRIPT_OR_STYLE = re.compile(r"<(script|style)\b[^>]*>.*?</\1>", re.IGNORECASE | re.DOTALL)
 TAG_RE = re.compile(r"<[^>]+>")
@@ -124,6 +131,18 @@ def audit_file(path: Path) -> list[str]:
         raw = RAW_HEADER_NAV_RE.findall(html)
         if raw:
             issues.append(f"{rel}: {len(raw)} <header> tag(s) without data-nav (hand-rolled)")
+
+    # 7. AI Mode optimization: sitewide WebSite + ReserveAction schema
+    if not is_exempt and not AI_WEBSITE_SCHEMA_RE.search(html):
+        issues.append(f"{rel}: missing AI-search WebSite/ReserveAction schema (run marketing/add-ai-search-schema.py)")
+
+    # 8. JSON-LD must parse
+    import json
+    for idx, m in enumerate(JSON_LD_RE.finditer(html)):
+        try:
+            json.loads(m.group(1))
+        except Exception as e:
+            issues.append(f"{rel}: JSON-LD block {idx} fails to parse ({e})")
 
     return issues
 
