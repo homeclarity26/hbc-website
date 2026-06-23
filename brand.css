@@ -1314,7 +1314,8 @@ input, textarea, select { font: inherit; color: inherit; }
 
 /* ============================================================
    Lead-answer paragraphs (Gemini direct-answer optimization)
-   Renders as a cream callout that reads on any background.
+   Default: cream callout for light sections (location pages,
+   sub-pages on cream backgrounds).
    ============================================================ */
 .lead-answer {
   font-family: var(--font-body);
@@ -1331,4 +1332,41 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 @media (max-width: 768px) {
   .lead-answer { font-size: 16px; padding: 14px 16px; }
+}
+
+/* Hero variant: native editorial treatment on the dark hero.
+   Same text, no callout box. Crawlers still see the paragraph. */
+.home-hero .lead-answer,
+.lead-answer--hero {
+  background: transparent;
+  border-left: 0;
+  padding: 0;
+  margin: 28px auto 24px;
+  max-width: 640px;
+  color: rgba(237, 233, 225, 0.86);
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  text-align: center;
+  font-weight: 300;
+  position: relative;
+}
+.home-hero .lead-answer::before,
+.lead-answer--hero::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+  margin: 0 auto 22px;
+}
+@media (max-width: 768px) {
+  .home-hero .lead-answer,
+  .lead-answer--hero {
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 92%;
+    margin: 22px auto 20px;
+  }
 }
