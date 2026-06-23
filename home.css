@@ -1669,3 +1669,81 @@
   .value-stack__total { flex-direction: column; align-items: flex-start; gap: 8px; }
   .price-reveal { padding: 36px 22px; }
 }
+
+/* =========================================================
+   ONE CALL FOR LIFE. Navy contrast band, after value stack.
+   ========================================================= */
+.one-call__wrap {
+  text-align: center;
+  max-width: 880px;
+}
+.one-call__head { margin-bottom: 36px; }
+.one-call__h2 {
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3.25rem);
+  line-height: 1.08;
+  color: var(--cream);
+  margin: 0 0 22px;
+}
+.one-call__lede {
+  margin: 0 auto;
+  max-width: 60ch;
+}
+.one-call__chips {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 44px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;
+  max-width: 760px;
+}
+.one-call__chip {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(237, 233, 225, 0.92);
+  background: rgba(237, 233, 225, 0.06);
+  border: 1px solid rgba(184, 115, 51, 0.45);
+  border-radius: 999px;
+  padding: 9px 18px;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.one-call__chip:hover {
+  background: rgba(184, 115, 51, 0.12);
+  border-color: rgba(184, 115, 51, 0.75);
+}
+.one-call__couplet {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.one-call__rule {
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.75;
+  margin: 0 0 22px;
+}
+.one-call__couplet-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.625rem);
+  line-height: 1.3;
+  color: rgba(237, 233, 225, 0.92);
+  margin: 0;
+  letter-spacing: 0.005em;
+}
+.one-call__couplet-line--accent {
+  color: var(--gold);
+}
+@media (max-width: 640px) {
+  .one-call__chips { gap: 8px 10px; margin-bottom: 36px; }
+  .one-call__chip { font-size: 13px; padding: 8px 14px; }
+  .one-call__couplet-line { font-size: 1.2rem; }
+}
