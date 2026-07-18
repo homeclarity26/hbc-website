@@ -11,7 +11,7 @@
     <meta property="og:title" content="Take the Tour — The Home Clarity Report" />
     <meta
       property="og:description"
-      content="See your home the way we see it: every room measured, every system documented, every cost known. A three-minute guided tour."
+      content="See your home the way we see it: every room measured, every system documented, every cost known. A two-minute guided tour."
     />
     <meta property="og:url" content="https://www.hometownbuildersclub.com/tour" />
     <meta property="og:type" content="website" />
@@ -21,7 +21,21 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='9' fill='%230A1628'/%3E%3Cpath d='M8 19.5L19 10L30 19.5' stroke='%23B87333' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='11' y='19.5' width='16' height='10.5' rx='1' fill='%23B87333' fill-opacity='0.18' stroke='%23B87333' stroke-width='1.5'/%3E%3Crect x='16.5' y='23.5' width='5' height='6.5' rx='.75' fill='%23B87333'/%3E%3C/svg%3E" />
     <meta name="theme-color" content="#0a1628" />
     <script>
-      // ?static — render final states with no motion (QA screenshots)
+      // ?static — reduced-motion rendering for previews/QA
+      // &at=<px> — open pre-scrolled to an offset (scene screenshots)
+      {
+        const qa = new URLSearchParams(location.search);
+        const at = Number(qa.get('at'));
+        if (at > 0) {
+          history.scrollRestoration = 'manual';
+          const t0 = Date.now();
+          const iv = setInterval(() => {
+            window.scrollTo(0, at);
+            if (Math.abs(window.scrollY - at) < 4 || Date.now() - t0 > 4000)
+              clearInterval(iv);
+          }, 40);
+        }
+      }
       if (new URLSearchParams(location.search).has('static')) {
         const mm = window.matchMedia.bind(window);
         window.matchMedia = (q) =>
@@ -37,16 +51,12 @@
                 dispatchEvent: () => false,
               }
             : mm(q);
-        document.addEventListener('DOMContentLoaded', () => {
-          const s = document.createElement('style');
-          s.textContent =
-            '*,*::before,*::after{animation:none!important;transition:none!important;filter:none!important}';
-          document.head.appendChild(s);
-        });
       }
     </script>
-    <script type="module" crossorigin src="/assets/tour/index-CotKcFJS.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/tour/index-YvW8Ab0o.css" />
+    <script type="module" crossorigin src="/assets/film-BtkjXEc-.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/custom-DNQzmJ-O.js">
+    <link rel="stylesheet" crossorigin href="/assets/custom-C1ndwr-n.css">
+    <link rel="stylesheet" crossorigin href="/assets/film-BBmDq-Qr.css">
   </head>
   <body>
     <div id="root"></div>
