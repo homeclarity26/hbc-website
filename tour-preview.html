@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Take the Tour | Home Clarity Report | Hometown Builders Club</title>
+    <meta
+      name="description"
+      content="A guided tour of the Home Clarity Report — the complete, honest picture of your home. Summit County, Ohio."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏡</text></svg>"
+    />
+    <meta name="theme-color" content="#0a1628" />
+    <script>
+      // ?static — reduced-motion rendering for previews/QA
+      // &at=<px> — open pre-scrolled to an offset (scene screenshots)
+      {
+        const qa = new URLSearchParams(location.search);
+        const at = Number(qa.get('at'));
+        if (at > 0) {
+          history.scrollRestoration = 'manual';
+          const t0 = Date.now();
+          const iv = setInterval(() => {
+            window.scrollTo(0, at);
+            if (
+              Math.abs(window.scrollY - at) < 4 ||
+              Date.now() - t0 > 4000
+            )
+              clearInterval(iv);
+          }, 40);
+        }
+      }
+      if (new URLSearchParams(location.search).has('static')) {
+        const mm = window.matchMedia.bind(window);
+        window.matchMedia = (q) =>
+          q.includes('prefers-reduced-motion')
+            ? {
+                matches: true,
+                media: q,
+                onchange: null,
+                addEventListener() {},
+                removeEventListener() {},
+                addListener() {},
+                removeListener() {},
+                dispatchEvent: () => false,
+              }
+            : mm(q);
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/film-hYDSoJmO.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/custom-DNQzmJ-O.js">
+    <link rel="stylesheet" crossorigin href="/assets/custom-C1ndwr-n.css">
+    <link rel="stylesheet" crossorigin href="/assets/film-DG6aDuQE.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

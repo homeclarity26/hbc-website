@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/tour", "destination": "/tour.html" },
+    { "source": "/tour-preview", "destination": "/tour-preview.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/services", "destination": "/services.html" },
     { "source": "/concierge", "destination": "/concierge.html" },
